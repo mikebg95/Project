@@ -1,4 +1,5 @@
 Problem statement
+
 The problem is a lack of a single simple, user-friendly workout app that lets the user set their own goals, design their own workout routine and set a personal diet based on the user's physical characteristics and goals. 
 
 The target audience of this app is people that workout regularly and seriously, and want one single app thats keep track of their progress, as well as an app that generates simple recipes based on their progress and goals.
