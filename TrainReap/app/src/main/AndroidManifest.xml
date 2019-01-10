@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mike.eattrainreap">
+    package="com.example.mike.trainreap">
 
     <application
         android:allowBackup="true"
@@ -16,15 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyWorkoutsActivity" />
-        <activity android:name=".GoalsProgressActivity" />
-        <activity android:name=".ExercisesActivity" />
-        <activity android:name=".WorkoutScheduleActivity" />
-        <activity android:name=".PreviousWorkoutsActivity" />
-        <activity android:name=".WorkoutActivity" />
-        <activity android:name=".FindExerciseActivity" />
-        <activity android:name=".PreviousExercisesActivity" />
-        <activity android:name=".SavedExercisesActivity"></activity>
     </application>
 
 </manifest>
