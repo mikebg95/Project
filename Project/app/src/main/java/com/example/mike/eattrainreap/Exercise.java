@@ -13,21 +13,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Exercise implements Serializable {
 
     // variable for exercise item
     private String name;
-    private ArrayList<Integer> muscles;
-    private ArrayList<Integer> secondaryMuscles;
-    private ArrayList<Integer> equipment;
+    private String muscles;
+    private String secondaryMuscles;
+    private String equipment;
     private String description;
 
     // constructor for this class
-
-
-    public Exercise(String name, ArrayList<Integer> muscles, ArrayList<Integer> secondaryMuscles, ArrayList<Integer> equipment, String description) {
+    public Exercise(String name, String muscles, String secondaryMuscles, String equipment, String description) {
         this.name = name;
         this.muscles = muscles;
         this.secondaryMuscles = secondaryMuscles;
@@ -39,33 +38,16 @@ public class Exercise implements Serializable {
     public String getName() {
         return name;
     }
-    public ArrayList<Integer> getMuscles() {
+    public String getMuscles() {
         return muscles;
     }
-    public ArrayList<Integer> getSecondaryMuscles() {
+    public String getSecondaryMuscles() {
         return secondaryMuscles;
     }
-    public ArrayList<Integer> getEquipment() {
+    public String getEquipment() {
         return equipment;
     }
     public String getDescription() {
         return description;
-    }
-
-    // setters for this class
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setMuscles(ArrayList<Integer> muscles) {
-        this.muscles = muscles;
-    }
-    public void setSecondaryMuscles(ArrayList<Integer> secondaryMuscles) {
-        this.secondaryMuscles = secondaryMuscles;
-    }
-    public void setEquipment(ArrayList<Integer> equipment) {
-        this.equipment = equipment;
-    }
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
