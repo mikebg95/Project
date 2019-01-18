@@ -46,26 +46,16 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
         exercisesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Log.d("clicked", "clicked");
+
                 // get clicked exercise object
                 Exercise currentExercise = (Exercise) parent.getItemAtPosition(position);
 
-                // get needed values from exercise object
-//                String name = currentExercise.getName();
-//                String description = currentExercise.getDescription();
-//                String muscles = currentExercise.getMuscles();
-//                String secondaryMuscles = currentExercise.getSecondaryMuscles();
-//                String equipment = currentExercise.getEquipment();
-
                 // add exercise to and start intent for pop-up screen
-                Intent intent = new Intent(FindExerciseActivity.this, PopUpActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
                 intent.putExtra("exercise", currentExercise);
-//
-//                intent.putExtra("name", name);
-//                intent.putExtra("description", description);
-//                intent.putExtra("muscles", muscles);
-//                intent.putExtra("secondaryMuscles", secondaryMuscles);
-//                intent.putExtra("equipment", equipment);
-
+                intent.putExtra("isFavorite", false);
                 startActivity(intent);
             }
         });

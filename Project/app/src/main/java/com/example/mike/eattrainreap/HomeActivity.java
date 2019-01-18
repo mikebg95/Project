@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static ArrayList<Exercise> favoriteExercises = new ArrayList<>();
+
     Button myWorkouts;
     Button goalsProgress;
     Button exercises;

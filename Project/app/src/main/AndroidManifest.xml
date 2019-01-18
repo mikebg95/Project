@@ -3,6 +3,7 @@
     package="com.example.mike.eattrainreap">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,10 +26,12 @@
         <activity android:name=".WorkoutActivity" />
         <activity android:name=".FindExerciseActivity" />
         <activity android:name=".PreviousExercisesActivity" />
-        <activity android:name=".SavedExercisesActivity"></activity>
-        <activity android:name=".PopUpActivity"
-            android:theme="@style/AppTheme.CustomTheme"
-            ></activity>
+        <activity android:name=".SavedExercisesActivity" />
+        <activity
+            android:name=".PopUpActivity"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".EditInfoActivity" />
+        <activity android:name=".NewWorkoutActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/ex_name"
+        android:layout_width="154dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ex_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/ex_name"
+        android:text="1"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ex_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/textView8"
+        android:text="2"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ex_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/textView9"
+        android:text="3"
+        android:textAlignment="center" />
+
+    <ViewSwitcher
+        android:id="@+id/switcher_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ex_name">
+
+        <!--<EditText-->
+            <!--android:id="@+id/set_1_edit"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="number"-->
+            <!--android:visibility="invisible" />-->
+
+        <TextView
+            android:id="@+id/set_1_text"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:text="0"
+            android:textAlignment="center" />
+    </ViewSwitcher>
+
+
+    <ViewSwitcher
+        android:id="@+id/switcher_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/switcher_1">
+
+        <!--<EditText-->
+            <!--android:id="@+id/set_2_edit"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="number"-->
+            <!--android:visibility="invisible" />-->
+
+        <TextView
+            android:id="@+id/set_2_text"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:text="0"
+            android:textAlignment="center" />
+    </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/switcher_2">
+
+        <!--<EditText-->
+            <!--android:id="@+id/set_3_edit"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="number"-->
+            <!--android:visibility="invisible" />-->
+
+        <TextView
+            android:id="@+id/set_3_text"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:text="0"
+            android:textAlignment="center" />
+    </ViewSwitcher>
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/switcher_rest"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="1dp"
+        android:text="rest (s)"
+        android:textAlignment="center"
+        android:textSize="10sp" />
+
+    <ViewSwitcher
+        android:id="@+id/switcher_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/add">
+
+        <EditText
+            android:id="@+id/rest_edit"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/rest_text"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:text="0"
+            android:textAlignment="center" />
+    </ViewSwitcher>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_alignTop="@+id/ex_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="0dp"
+        android:text="add"
+        android:textSize="10sp" />
+</RelativeLayout>
