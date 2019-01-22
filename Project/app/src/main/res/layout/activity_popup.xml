@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/muscle"
+        android:id="@+id/muscle_info"
         android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_below="@+id/name"
@@ -33,7 +33,7 @@
         android:id="@+id/secondary_muscles"
         android:layout_width="180dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/muscle"
+        android:layout_below="@+id/muscle_info"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="secondary muscles"

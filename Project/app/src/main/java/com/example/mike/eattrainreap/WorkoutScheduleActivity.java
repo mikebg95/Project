@@ -1,5 +1,6 @@
 package com.example.mike.eattrainreap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +18,15 @@ public class WorkoutScheduleActivity extends AppCompatActivity {
 
         schedule = findViewById(R.id.schedule);
 
-        schedule.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // go to that specific workout
-            }
-        });
+        WorkoutAdapter wAdapter = new WorkoutAdapter(this, R.layout.workout_row, MyWorkoutsActivity.workouts);
+        schedule.setAdapter(wAdapter);
+
+
+//        schedule.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                // go to that specific workout
+//            }
+//        });
     }
 }

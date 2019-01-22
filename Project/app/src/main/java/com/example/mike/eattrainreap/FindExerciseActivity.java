@@ -23,7 +23,10 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
     ListView exercisesView;
     Context context;
     ExercisesRequest.Callback activity;
+    int positionClicked;
 
+    // to know if user wants to add to favorites or to workout
+    private boolean forWorkout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,15 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
         context = getApplicationContext();
         activity = this;
 
+        forWorkout = false;
+
+        // when searching to add to workout
+        Intent intent = getIntent();
+        forWorkout = intent.getBooleanExtra("forWorkout", false);
+        positionClicked = intent.getIntExtra("position", 300);
+
         // link variables to views
-        exercisesView = findViewById(R.id.exercises);
+        exercisesView = findViewById(R.id.exercises_info);
         search = findViewById(R.id.search);
 
         // request exercises through api
@@ -53,10 +63,14 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
                 Exercise currentExercise = (Exercise) parent.getItemAtPosition(position);
 
                 // add exercise to and start intent for pop-up screen
-                Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
-                intent.putExtra("exercise", currentExercise);
-                intent.putExtra("isFavorite", false);
-                startActivity(intent);
+                Intent intent2 = new Intent(getApplicationContext(), PopUpActivity.class);
+                intent2.putExtra("exercise", currentExercise);
+
+                // make clear if for favorites or for workout
+                intent2.putExtra("isFavorite", false);
+                intent2.putExtra("forWorkout", forWorkout);
+                intent2.putExtra("position", positionClicked);
+                startActivity(intent2);
             }
         });
     }

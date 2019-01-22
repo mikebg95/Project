@@ -12,6 +12,8 @@ public class MyWorkoutsActivity extends AppCompatActivity {
 
     public static ArrayList<WorkoutExercise2> workoutExercises = new ArrayList<>();
 
+    public static ArrayList<Workout> workouts = new ArrayList<>();
+
     Button workoutSchedule;
     Button previousWorkouts;
     Button newWorkout;

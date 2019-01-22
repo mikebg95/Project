@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class PopUpActivity extends Activity implements Serializable {
 
@@ -25,6 +24,8 @@ public class PopUpActivity extends Activity implements Serializable {
     TextView exEquipment;
     TextView exDescription;
     Button favorite;
+
+    int positionClicked = 300;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,9 +41,11 @@ public class PopUpActivity extends Activity implements Serializable {
         // set width and height op pop-up screen to 80 percent of full screen
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
 
+//        getWindow().setLayout(1, 1);
+
         // link variables to views
         exName = findViewById(R.id.name);
-        exMuscles = findViewById(R.id.muscle);
+        exMuscles = findViewById(R.id.muscle_info);
         exSecMuscles = findViewById(R.id.secondary_muscles);
         exEquipment = findViewById(R.id.equipment);
         exDescription = findViewById(R.id.description);
@@ -52,12 +55,19 @@ public class PopUpActivity extends Activity implements Serializable {
         Intent intent = getIntent();
         final Exercise exercise = (Exercise) intent.getSerializableExtra("exercise");
         final Boolean isFavorite = intent.getBooleanExtra("isFavorite", false);
+        final Boolean forWorkout = intent.getBooleanExtra("forWorkout", false);
 
-        if (!isFavorite) {
-            favorite.setText("Add to favorites");
+        // set correct text to "add" button
+        if (forWorkout) {
+            favorite.setText("Add to workout");
+            positionClicked = intent.getIntExtra("position", 300);
         }
         else {
-            favorite.setText("Delete from favorites");
+            if (!isFavorite) {
+                favorite.setText("Add to favorites");
+            } else {
+                favorite.setText("Delete from favorites");
+            }
         }
 
         // set layout views to relevant information
@@ -72,43 +82,57 @@ public class PopUpActivity extends Activity implements Serializable {
             @Override
             public void onClick(View v) {
 
-                if (!isFavorite) {
-                    // only add if not in arraylist
-                    if (!HomeActivity.favoriteExercises.contains(exercise)) {
-                        HomeActivity.favoriteExercises.add(exercise);
-                        Toast.makeText(getApplicationContext(), "exercise added to favorites!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "exercise already added to favorites!", Toast.LENGTH_SHORT).show();
+                // if coming from newWorkoutActivity
+                if (forWorkout) {
+                    // go back to NewWorkoutActivity and send added exercise as intent
+                    Intent intent2 = new Intent(PopUpActivity.this, NewWorkoutActivity.class);
+                    if (positionClicked != 300) {
+                        Log.d("position", Integer.toString(positionClicked));
+                        intent2.putExtra("position", positionClicked);
                     }
+                    MyWorkoutsActivity.workoutExercises.get(positionClicked).setExercise(exercise);
+//                    intent2.putExtra("exercise", exercise);
+                    Toast.makeText(getApplicationContext(), "exercise added to workout!", Toast.LENGTH_SHORT).show();
+//                    PopUpActivity.super.finish();
+                    startActivity(intent2);
                 }
                 else {
+                    if (!isFavorite) {
+                        // only add if not in arraylist
+                        if (!HomeActivity.favoriteExercises.contains(exercise)) {
+                            HomeActivity.favoriteExercises.add(exercise);
+                            Toast.makeText(getApplicationContext(), "exercise added to favorites!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "exercise already added to favorites!", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
 //                    int index = HomeActivity.favoriteExercises.indexOf(exercise);
 //                    HomeActivity.favoriteExercises.remove(index);
-                    Log.d("favorite exercises", HomeActivity.favoriteExercises.get(0).getName());
-                    Log.d("exercise", exercise.getName());
+                        Log.d("favorite exercises", HomeActivity.favoriteExercises.get(0).getName());
+                        Log.d("exercise", exercise.getName());
 
-                    Boolean inList = false;
-                    for (int i = 0; i < HomeActivity.favoriteExercises.size(); i++) {
-                        if (HomeActivity.favoriteExercises.get(i).getName().equals(exercise.getName())) {
-                            inList = true;
-                        }
-                    }
-                    if (inList) {
-                        Log.d("favorite exercises before removal", Integer.toString(HomeActivity.favoriteExercises.size()));
-
+                        Boolean inList = false;
                         for (int i = 0; i < HomeActivity.favoriteExercises.size(); i++) {
                             if (HomeActivity.favoriteExercises.get(i).getName().equals(exercise.getName())) {
-                                HomeActivity.favoriteExercises.remove(i);
+                                inList = true;
                             }
                         }
+                        if (inList) {
+                            Log.d("favorite exercises before removal", Integer.toString(HomeActivity.favoriteExercises.size()));
+
+                            for (int i = 0; i < HomeActivity.favoriteExercises.size(); i++) {
+                                if (HomeActivity.favoriteExercises.get(i).getName().equals(exercise.getName())) {
+                                    HomeActivity.favoriteExercises.remove(i);
+                                }
+                            }
 
 //                        HomeActivity.favoriteExercises.remove(exercise);
-                        Toast.makeText(getApplicationContext(), "exercise removed from favorites!", Toast.LENGTH_SHORT).show();
-                        SavedExercisesActivity.adapter.notifyDataSetChanged();
-                        Log.d("favorite exercises after removal", Integer.toString(HomeActivity.favoriteExercises.size()));
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), "exercise already removed from favorites!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "exercise removed from favorites!", Toast.LENGTH_SHORT).show();
+                            SavedExercisesActivity.adapter.notifyDataSetChanged();
+                            Log.d("favorite exercises after removal", Integer.toString(HomeActivity.favoriteExercises.size()));
+                        } else {
+                            Toast.makeText(getApplicationContext(), "exercise already removed from favorites!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
 

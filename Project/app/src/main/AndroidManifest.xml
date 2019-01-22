@@ -31,7 +31,10 @@
             android:name=".PopUpActivity"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".EditInfoActivity" />
-        <activity android:name=".NewWorkoutActivity"></activity>
+        <activity android:name=".NewWorkoutActivity" />
+        <activity android:name=".CommentActivity" />
+        <activity android:name=".WorkoutInfoActivity" />
+        <activity android:name=".EditWorkoutActivity"></activity>
     </application>
 
 </manifest>

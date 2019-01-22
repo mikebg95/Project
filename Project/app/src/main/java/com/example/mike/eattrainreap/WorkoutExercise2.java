@@ -35,4 +35,21 @@ public class WorkoutExercise2 implements Serializable {
     public int getRest() {
         return rest;
     }
+
+    // setters for this workout
+    public void setExercise(Exercise exercise) {
+        this.exercise = exercise;
+    }
+    public void setSet1(int set1) {
+        this.set1 = set1;
+    }
+    public void setSet2(int set2) {
+        this.set2 = set2;
+    }
+    public void setSet3(int set3) {
+        this.set3 = set3;
+    }
+    public void setRest(int rest) {
+        this.rest = rest;
+    }
 }

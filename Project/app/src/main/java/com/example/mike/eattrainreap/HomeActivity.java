@@ -3,7 +3,6 @@ package com.example.mike.eattrainreap;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
 
         myWorkouts = findViewById(R.id.myWorkouts);
         goalsProgress = findViewById(R.id.goalsProgress);
-        exercises = findViewById(R.id.exercises);
+        exercises = findViewById(R.id.exercises_info);
 
         myWorkouts.setOnClickListener(new View.OnClickListener() {
             @Override
