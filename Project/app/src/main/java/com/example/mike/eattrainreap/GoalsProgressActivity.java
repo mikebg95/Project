@@ -10,13 +10,15 @@ import android.widget.TextView;
 
 public class GoalsProgressActivity extends AppCompatActivity {
 
+    // variables for views and button
     TextView age;
     TextView height;
     TextView weight;
     TextView goalWeight;
     Button edit;
 
-    ImageView graph;
+    // variable for graph imageview
+//    ImageView graph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +26,28 @@ public class GoalsProgressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_goals_progress);
 
         Intent intent = getIntent();
-//        intent.getStringExtra("age");
 
+//        graph = findViewById(R.id.graph);
+
+        // link variables to views and buttons
         age = findViewById(R.id.age);
         height = findViewById(R.id.height);
         weight = findViewById(R.id.weight);
-//        graph = findViewById(R.id.graph);
         goalWeight = findViewById(R.id.goalWeight);
         edit = findViewById(R.id.edit);
 
+        // set correct information on views
         age.setText(intent.getStringExtra("age"));
         height.setText(intent.getStringExtra("height"));
         weight.setText(intent.getStringExtra("weight"));
         goalWeight.setText(intent.getStringExtra("goalWeight"));
 
+        // when clicked on "Edit"
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // send profile info to EditInfoActivity via intent
                 Intent intent = new Intent(getApplicationContext(), EditInfoActivity.class);
                 intent.putExtra("age", age.getText());
                 intent.putExtra("height", height.getText());

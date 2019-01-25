@@ -27,6 +27,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
     Workout workout;
 
     int pos;
+    int backPress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,27 +42,10 @@ public class EditWorkoutActivity extends AppCompatActivity {
         saveChanges = findViewById(R.id.save_changes);
         addExercise = findViewById(R.id.add_exercise);
 
-        // get clicked position and workout from intent
+        // get clicked position from intent and retrieve workout
         Intent intent = getIntent();
         pos = intent.getIntExtra("position", 0);
         workout = MyWorkoutsActivity.workouts.get(pos);
-
-        // get list of exercises for that workout (NOT WORKING -> exercisesRetrieved is null!)
-//        MyWorkoutsActivity.workoutExercises.addAll(workout.getWorkoutExercises());
-
-//        Toast.makeText(getApplicationContext(), MyWorkoutsActivity.workouts.get(0).getMuscleGroups(), Toast.LENGTH_SHORT).show();
-
-//        MyWorkoutsActivity.workoutExercises = MyWorkoutsActivity.workouts.get(pos).getWorkoutExercises();
-//                workout.getWorkoutExercises();
-
-        // test to see if exercises are retrieved
-//        if (exercisesRetrieved == null) {
-//            Toast.makeText(getApplicationContext(), "exercisesRetrieved is null", Toast.LENGTH_SHORT).show();
-//        }
-//        else {
-//            Toast.makeText(getApplicationContext(), "exercisesRetrieved is not null", Toast.LENGTH_SHORT).show();
-//            Toast.makeText(getApplicationContext(), Integer.toString(exercisesRetrieved.size()), Toast.LENGTH_SHORT).show();
-//        }
 
         //  set editviews to correct information
         changeMuscle.setText(workout.getMuscleGroups());
@@ -69,21 +53,23 @@ public class EditWorkoutActivity extends AppCompatActivity {
         changeComment.setText(workout.getComment());
 
         // set listview to list of exercises via adapter
-        final WorkoutExerciseAdapter adapter = new WorkoutExerciseAdapter(this, R.layout.workout_exercise_row_editable, MyWorkoutsActivity.workoutExercises);
+        final WorkoutExerciseAdapter adapter = new WorkoutExerciseAdapter(this, R.layout.workout_exercise_row_editable, workout.getWorkoutExercises());
         changeExercises.setAdapter(adapter);
 
+        // when clicked on "add exercise"
         addExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // create new workout exercise object with default values
-                WorkoutExercise2 newEx = new WorkoutExercise2(null, 0, 0, 0, 0);
+                WorkoutExercise2 newEx = new WorkoutExercise2(null, 0, 0, 0, 0, 0, 0);
 
                 // add to arraylist of exercises for that workout and notify adapter
-                MyWorkoutsActivity.workoutExercises.add(newEx);
+                MyWorkoutsActivity.workouts.get(pos).getWorkoutExercises().add(newEx);
+//                MyWorkoutsActivity.workoutExercises.add(newEx);
                 adapter.notifyDataSetChanged();
 
                 // TODO: make added row in listview Editable
-                // returns (correct) position of added exercise
+                // returns (incorrect) position of added exercise -> TODO: get correct position!
                 int position = adapter.getPosition(newEx) - changeExercises.getFirstVisiblePosition();
                 Log.d("position", Integer.toString(position));
 
@@ -125,5 +111,18 @@ public class EditWorkoutActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void onBackPressed() {
+        // go back to home screen
+        backPress += 1;
+
+
+        if (backPress>1) {
+            Intent intent = new Intent(EditWorkoutActivity.this, WorkoutScheduleActivity.class);
+            startActivity(intent);
+        }
+
+        Toast.makeText(getApplicationContext(), " Press Back again to Exit (changes won't be saved!) ", Toast.LENGTH_SHORT).show();
     }
 }

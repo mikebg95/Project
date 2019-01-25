@@ -8,13 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExerciseAdapter extends ArrayAdapter<Exercise> {
+public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterable {
+
+    ExercisesFilter eFilter;
 
     // create variables for views
     private TextView name;
@@ -31,6 +35,54 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
         this.exercises = exercises;
     }
 
+    @Override
+    public Filter getFilter() {
+        if (eFilter == null) {
+            eFilter = new ExercisesFilter();
+        }
+
+        return eFilter;
+    }
+
+    private class ExercisesFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            // create FilterResults object
+            FilterResults results = new FilterResults();
+
+            if (constraint == null || constraint.length() == 0) {
+                results.values = exercises;
+                results.count = exercises.size();
+            }
+            else {
+                ArrayList<Exercise> filteredExercises = new ArrayList<>();
+
+                for (Exercise e : exercises) {
+                    if (e.getName().toUpperCase().contains(constraint.toString().toUpperCase())) {
+                        filteredExercises.add(e);
+                    }
+                }
+
+                results.values = filteredExercises;
+                results.count = filteredExercises.size();
+            }
+            return results;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            clear();
+            exercises = (ArrayList<Exercise>) results.values;
+            addAll(exercises);
+            Log.d("size", Integer.toString(exercises.size()));
+            notifyDataSetChanged();
+        }
+    }
+
+    // TODO: DOESN't WORK CORRECTLY (IndexOutOfBoundsException (line 92))
     // link exercise information to row in list view
     @NonNull
     @Override
@@ -46,7 +98,6 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
         name = convertView.findViewById(R.id.name);
         muscle = convertView.findViewById(R.id.muscle_group);
         equipment = convertView.findViewById(R.id.equipment);
-//        favorite = convertView.findViewById(R.id.favorite);
 
         // set textviews to relevant info
         name.setText(current.getName());

@@ -38,6 +38,7 @@ public class Workout implements Serializable {
         return timestamp;
     }
 
+    // setters for this class
     public void setWorkoutExercises(ArrayList<WorkoutExercise2> workoutExercises) {
         this.workoutExercises = workoutExercises;
     }

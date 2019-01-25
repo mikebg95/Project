@@ -3,21 +3,25 @@ package com.example.mike.eattrainreap;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class WorkoutScheduleActivity extends AppCompatActivity {
 
-    ListView schedule;
+    int backPress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_schedule);
 
-        schedule = findViewById(R.id.schedule);
+        // link variable to listview
+        ListView schedule = findViewById(R.id.schedule);
 
+        // link listview to workouts via adapter
         WorkoutAdapter wAdapter = new WorkoutAdapter(this, R.layout.workout_row, MyWorkoutsActivity.workouts);
         schedule.setAdapter(wAdapter);
 
@@ -29,4 +33,11 @@ public class WorkoutScheduleActivity extends AppCompatActivity {
 //            }
 //        });
     }
+
+    public void onBackPressed() {
+        // go back to home screen
+        Intent intent = new Intent(WorkoutScheduleActivity.this, MyWorkoutsActivity.class);
+        startActivity(intent);
+    }
+
 }

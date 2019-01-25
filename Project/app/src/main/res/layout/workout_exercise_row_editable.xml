@@ -2,6 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/switcher_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/textView22"
+        android:text="5"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/switcher_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/textView14"
+        android:text="4"
+        android:textAlignment="center" />
+
     <ViewSwitcher
         android:id="@+id/switcher_name"
         android:layout_width="wrap_content"
@@ -131,6 +153,54 @@
             android:text="0"
             android:textAlignment="center" />
     </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/switcher_3">
+
+        <EditText
+            android:id="@+id/set_4_edit"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/set_4_text"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="0"
+            android:textAlignment="center" />
+    </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/switcher_4">
+
+        <EditText
+            android:id="@+id/set_5_edit"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/set_5_text"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="0"
+            android:textAlignment="center" />
+    </ViewSwitcher>
+
+
 
     <TextView
         android:id="@+id/textView15"

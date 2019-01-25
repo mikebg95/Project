@@ -8,10 +8,10 @@ import android.widget.Button;
 
 public class ExercisesActivity extends AppCompatActivity {
 
+    // variables for buttons and intent
     Button findExercise;
     Button savedExercises;
     Button previousExercises;
-
     Intent intent;
 
     @Override
@@ -19,10 +19,11 @@ public class ExercisesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises);
 
+        // link variables to buttons
         findExercise = findViewById(R.id.findExercise);
         savedExercises = findViewById(R.id.savedExercises);
-        previousExercises = findViewById(R.id.previousExercises);
 
+        // when clicked on certain button, go to corresponding activity
         findExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,14 +36,6 @@ public class ExercisesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(ExercisesActivity.this, SavedExercisesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        previousExercises.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(ExercisesActivity.this, PreviousExercisesActivity.class);
                 startActivity(intent);
             }
         });

@@ -19,10 +19,17 @@ import java.util.ArrayList;
 
 public class FindExerciseActivity extends AppCompatActivity implements ExercisesRequest.Callback, Serializable {
 
+    // variable for views
     EditText search;
     ListView exercisesView;
+
+    // variables for context and activity callback
     Context context;
     ExercisesRequest.Callback activity;
+
+    Intent intent;
+
+    // to know which exercise what clicked by user
     int positionClicked;
 
     // to know if user wants to add to favorites or to workout
@@ -37,10 +44,11 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
         context = getApplicationContext();
         activity = this;
 
-        forWorkout = false;
+        // by default
+//        forWorkout = false;
 
         // when searching to add to workout
-        Intent intent = getIntent();
+        intent = getIntent();
         forWorkout = intent.getBooleanExtra("forWorkout", false);
         positionClicked = intent.getIntExtra("position", 300);
 
@@ -57,20 +65,18 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Log.d("clicked", "clicked");
-
                 // get clicked exercise object
                 Exercise currentExercise = (Exercise) parent.getItemAtPosition(position);
 
                 // add exercise to and start intent for pop-up screen
-                Intent intent2 = new Intent(getApplicationContext(), PopUpActivity.class);
-                intent2.putExtra("exercise", currentExercise);
+                intent = new Intent(getApplicationContext(), PopUpActivity.class);
+                intent.putExtra("exercise", currentExercise);
 
                 // make clear if for favorites or for workout
-                intent2.putExtra("isFavorite", false);
-                intent2.putExtra("forWorkout", forWorkout);
-                intent2.putExtra("position", positionClicked);
-                startActivity(intent2);
+                intent.putExtra("isFavorite", false);
+                intent.putExtra("forWorkout", forWorkout);
+                intent.putExtra("position", positionClicked);
+                startActivity(intent);
             }
         });
     }
@@ -78,12 +84,8 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
     // when api request succeeded
     @Override
     public void gotExercises(ArrayList<Exercise> exercises) {
-//        for (int i = 0; i < exercises.size(); i++) {
-////            Log.d("exercise muscles", exercises.get(i).getMuscles().toString());
-//
-//        }
 
-        // create adapter and link exercises to listview
+        // link exercises to listview via adapter
         final ExerciseAdapter adapter = new ExerciseAdapter(this, R.layout.exercise_row, exercises);
         exercisesView.setAdapter(adapter);
 
@@ -97,6 +99,7 @@ public class FindExerciseActivity extends AppCompatActivity implements Exercises
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 adapter.getFilter().filter(s);
+                adapter.notifyDataSetChanged();
             }
 
             @Override

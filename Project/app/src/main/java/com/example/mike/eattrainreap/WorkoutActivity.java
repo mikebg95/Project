@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class WorkoutActivity extends AppCompatActivity {
 
+    // variables for views
     TextView text;
     ListView exercises;
 

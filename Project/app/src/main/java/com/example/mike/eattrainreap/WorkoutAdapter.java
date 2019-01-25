@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +20,18 @@ import java.util.ArrayList;
 public class WorkoutAdapter extends ArrayAdapter<Workout> {
 
     // views for adapter
-    private TextView muscleGroup;
-    TextView timestamp;
-    private TextView workoutDay;
-
     private Workout currentWorkout;
 
     // arraylist to store workouts
     private ArrayList<Workout> workouts;
 
+    // contructor for this adapter
     public WorkoutAdapter(Context context, int resource, ArrayList<Workout> workouts) {
         super(context, resource, workouts);
         this.workouts = workouts;
     }
 
+    // binds views in row to correct information
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -40,26 +39,25 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.workout_row, parent, false);
         }
 
-        // bind views to correct information
-        muscleGroup = convertView.findViewById(R.id.muscle_group);
-        timestamp = convertView.findViewById(R.id.timestamp);
-        workoutDay = convertView.findViewById(R.id.workout_day);
+        // create variable linked to text views
+        TextView muscleGroup = convertView.findViewById(R.id.muscle_group);
+        TextView timestamp = convertView.findViewById(R.id.timestamp);
+        TextView workoutDay = convertView.findViewById(R.id.workout_day);
 
+        // retrieve current workout
         currentWorkout = workouts.get(position);
 
-        muscleGroup.setText(workouts.get(position).getMuscleGroups());
-//        muscleGroup.setText(currentWorkout.getMuscleGroups());
-
+        // set correct info to text views
+        muscleGroup.setText(currentWorkout.getMuscleGroups());
         timestamp.setText(currentWorkout.getTimestamp());
         workoutDay.setText(currentWorkout.getWorkoutDay());
 
-        // when workout is long clicked, show options
+        // when workout is long clicked
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(final View v) {
 
-                Toast.makeText(getContext(), "clicked row was " + position, Toast.LENGTH_SHORT).show();
-
+                // create pop-up menu with options
                 final String[] options = {"Edit", "Delete", "Cancel"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Select");
@@ -68,20 +66,25 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
                     public void onClick(DialogInterface dialog, int which) {
                         switch(which) {
                             case 0:
-                                // go to EditWorkoutActivity, send clicked workout as intent
+
+                                // go to EditWorkoutActivity, send clicked workout position as intent
                                 Intent intent = new Intent(getContext(), EditWorkoutActivity.class);
-                                intent.putExtra("workoutClicked", currentWorkout);
+//                                intent.putExtra("workoutClicked", currentWorkout);
                                 intent.putExtra("position", position);
                                 v.getContext().startActivity(intent);
 
                                 Toast.makeText(getContext(), "'edit' clicked", Toast.LENGTH_SHORT).show();
                                 break;
                             case 1:
+
+                                // remove workout
                                 MyWorkoutsActivity.workouts.remove(currentWorkout);
                                 notifyDataSetChanged();
                                 Toast.makeText(getContext(), "workout deleted", Toast.LENGTH_SHORT).show();
                                 break;
                             case 2:
+
+                                // dismiss pop-up screen
                                 dialog.dismiss();
                                 Toast.makeText(getContext(), "cancelled", Toast.LENGTH_SHORT).show();
                                 break;
@@ -90,19 +93,21 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
                 });
 
                 builder.show();
-
                 return true;
             }
 
 
         });
 
-        // when item is short clicked, show info
+        // when item is short clicked
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // go to WorkoutInfoActivity, send clicked workout position as intent
                 Intent intent = new Intent(getContext(), WorkoutInfoActivity.class);
-                intent.putExtra("workoutClicked", currentWorkout);
+                intent.putExtra("position", position);
+
                 v.getContext().startActivity(intent);
             }
         });

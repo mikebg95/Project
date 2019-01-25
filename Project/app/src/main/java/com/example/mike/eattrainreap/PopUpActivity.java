@@ -15,8 +15,6 @@ import java.io.Serializable;
 
 public class PopUpActivity extends Activity implements Serializable {
 
-//   public static ArrayList<Exercise> favoriteExercises = new ArrayList<>();
-
    // variables for views
     TextView exName;
     TextView exMuscles;
@@ -25,7 +23,7 @@ public class PopUpActivity extends Activity implements Serializable {
     TextView exDescription;
     Button favorite;
 
-    int positionClicked = 300;
+    int position;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,8 +38,6 @@ public class PopUpActivity extends Activity implements Serializable {
 
         // set width and height op pop-up screen to 80 percent of full screen
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
-
-//        getWindow().setLayout(1, 1);
 
         // link variables to views
         exName = findViewById(R.id.name);
@@ -60,7 +56,7 @@ public class PopUpActivity extends Activity implements Serializable {
         // set correct text to "add" button
         if (forWorkout) {
             favorite.setText("Add to workout");
-            positionClicked = intent.getIntExtra("position", 300);
+            position = intent.getIntExtra("position", 300);
         }
         else {
             if (!isFavorite) {
@@ -77,28 +73,32 @@ public class PopUpActivity extends Activity implements Serializable {
         exMuscles.setText(exercise.getMuscles());
         exSecMuscles.setText(exercise.getSecondaryMuscles());
 
-        // when button clicked, add exercise to arraylist of favorite exercises
+        // when button clicked, add/delete exercise to/from either favorites or add to workout exercise
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // if coming from newWorkoutActivity
                 if (forWorkout) {
-                    // go back to NewWorkoutActivity and send added exercise as intent
+
+                    // add exercise to correct workout exercisse
+                    MyWorkoutsActivity.workoutExercises.get(position).setExercise(exercise);
+
+                    // go back to NewWorkoutActivity and return position as intent
                     Intent intent2 = new Intent(PopUpActivity.this, NewWorkoutActivity.class);
-                    if (positionClicked != 300) {
-                        Log.d("position", Integer.toString(positionClicked));
-                        intent2.putExtra("position", positionClicked);
+                    if (position != 300) {
+                        intent2.putExtra("position", position);
                     }
-                    MyWorkoutsActivity.workoutExercises.get(positionClicked).setExercise(exercise);
-//                    intent2.putExtra("exercise", exercise);
+
                     Toast.makeText(getApplicationContext(), "exercise added to workout!", Toast.LENGTH_SHORT).show();
-//                    PopUpActivity.super.finish();
                     startActivity(intent2);
                 }
                 else {
+
+                    // if user is not coming from favorites
                     if (!isFavorite) {
-                        // only add if not in arraylist
+
+                        // only add if not in favorites
                         if (!HomeActivity.favoriteExercises.contains(exercise)) {
                             HomeActivity.favoriteExercises.add(exercise);
                             Toast.makeText(getApplicationContext(), "exercise added to favorites!", Toast.LENGTH_SHORT).show();
@@ -106,36 +106,33 @@ public class PopUpActivity extends Activity implements Serializable {
                             Toast.makeText(getApplicationContext(), "exercise already added to favorites!", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-//                    int index = HomeActivity.favoriteExercises.indexOf(exercise);
-//                    HomeActivity.favoriteExercises.remove(index);
-                        Log.d("favorite exercises", HomeActivity.favoriteExercises.get(0).getName());
-                        Log.d("exercise", exercise.getName());
 
+                        // check if exercise is in list of favorites
                         Boolean inList = false;
                         for (int i = 0; i < HomeActivity.favoriteExercises.size(); i++) {
                             if (HomeActivity.favoriteExercises.get(i).getName().equals(exercise.getName())) {
                                 inList = true;
                             }
                         }
-                        if (inList) {
-                            Log.d("favorite exercises before removal", Integer.toString(HomeActivity.favoriteExercises.size()));
 
+                        // if exercise in favorites, remove exercise and notify adapter
+                        if (inList) {
                             for (int i = 0; i < HomeActivity.favoriteExercises.size(); i++) {
                                 if (HomeActivity.favoriteExercises.get(i).getName().equals(exercise.getName())) {
                                     HomeActivity.favoriteExercises.remove(i);
                                 }
                             }
 
-//                        HomeActivity.favoriteExercises.remove(exercise);
                             Toast.makeText(getApplicationContext(), "exercise removed from favorites!", Toast.LENGTH_SHORT).show();
                             SavedExercisesActivity.adapter.notifyDataSetChanged();
-                            Log.d("favorite exercises after removal", Integer.toString(HomeActivity.favoriteExercises.size()));
-                        } else {
+                        }
+
+                        // if exercise not in favorites
+                        else {
                             Toast.makeText(getApplicationContext(), "exercise already removed from favorites!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
-
             }
         });
     }

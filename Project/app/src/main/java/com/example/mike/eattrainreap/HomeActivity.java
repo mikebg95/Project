@@ -11,11 +11,10 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
+    // arraylist to store favorite/saved exercises (can be accessed from multiple activities)
     public static ArrayList<Exercise> favoriteExercises = new ArrayList<>();
 
-    Button myWorkouts;
-    Button goalsProgress;
-    Button exercises;
+    // variable for intent
     Intent intent;
 
     @Override
@@ -23,10 +22,12 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        myWorkouts = findViewById(R.id.myWorkouts);
-        goalsProgress = findViewById(R.id.goalsProgress);
-        exercises = findViewById(R.id.exercises_info);
+        // link variables to buttons
+        Button myWorkouts = findViewById(R.id.myWorkouts);
+        Button goalsProgress = findViewById(R.id.goalsProgress);
+        Button exercises = findViewById(R.id.exercises_info);
 
+        // when clicked on button, go to corresponding activity (via intent)
         myWorkouts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +51,5 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }

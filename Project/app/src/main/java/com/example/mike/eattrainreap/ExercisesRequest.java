@@ -98,12 +98,6 @@ public class ExercisesRequest {
                         }
                     }
 
-                    for (int i = 0; i < exercises.size(); i++) {
-                        Log.d("name " + i, exercises.get(i).getName());
-                        Log.d("muscle " + i, exercises.get(i).getMuscles());
-                        Log.d("equipment " + i, exercises.get(i).getEquipment());
-                    }
-
                     activity.gotExercises(exercises);
                 }
                 catch (JSONException e) {
@@ -218,7 +212,7 @@ public class ExercisesRequest {
                     break;
             }
         }
-//        return equipmentString.substring(0, equipmentString.length() - 2);
+
         return equipmentString;
     }
 

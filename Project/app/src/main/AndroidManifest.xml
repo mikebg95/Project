@@ -22,10 +22,8 @@
         <activity android:name=".GoalsProgressActivity" />
         <activity android:name=".ExercisesActivity" />
         <activity android:name=".WorkoutScheduleActivity" />
-        <activity android:name=".PreviousWorkoutsActivity" />
         <activity android:name=".WorkoutActivity" />
         <activity android:name=".FindExerciseActivity" />
-        <activity android:name=".PreviousExercisesActivity" />
         <activity android:name=".SavedExercisesActivity" />
         <activity
             android:name=".PopUpActivity"

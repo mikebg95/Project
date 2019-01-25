@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class SavedExercisesActivity extends AppCompatActivity {
 
+    // variables for listview and adapter
     ListView savedExercises;
     public static ExerciseAdapter adapter;
 
@@ -22,10 +23,10 @@ public class SavedExercisesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_exercises);
 
-        // create variabless linked to listview
+        // create variables linked to listview
         savedExercises = findViewById(R.id.savedExercises);
 
-        // set adapter to listview of favorite exercises
+        // set listview to favorite exercises via adapter
         adapter = new ExerciseAdapter(this, R.layout.exercise_row, HomeActivity.favoriteExercises);
         savedExercises.setAdapter(adapter);
 
@@ -33,6 +34,7 @@ public class SavedExercisesActivity extends AppCompatActivity {
         savedExercises.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 // get clicked exercise object
                 Exercise currentExercise = (Exercise) parent.getItemAtPosition(position);
 

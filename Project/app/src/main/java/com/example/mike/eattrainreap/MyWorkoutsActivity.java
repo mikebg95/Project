@@ -10,14 +10,16 @@ import java.util.ArrayList;
 
 public class MyWorkoutsActivity extends AppCompatActivity {
 
+    // static arraylists to store workoutExercises and Workouts
     public static ArrayList<WorkoutExercise2> workoutExercises = new ArrayList<>();
-
     public static ArrayList<Workout> workouts = new ArrayList<>();
 
+    // variables for buttons
     Button workoutSchedule;
     Button previousWorkouts;
     Button newWorkout;
 
+    // variable for intent
     Intent intent;
 
     @Override
@@ -25,10 +27,11 @@ public class MyWorkoutsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_workouts);
 
+        // link variables to correct buttons
         newWorkout = findViewById(R.id.new_workout);
         workoutSchedule = findViewById(R.id.schedule);
-        previousWorkouts = findViewById(R.id.previous);
 
+        // when clicked on button, go to corresponding activity via intent
         newWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,13 +47,10 @@ public class MyWorkoutsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        previousWorkouts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(MyWorkoutsActivity.this, PreviousWorkoutsActivity.class);
-                startActivity(intent);
-            }
-        });
+    public void onBackPressed() {
+        Intent intent = new Intent(MyWorkoutsActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }

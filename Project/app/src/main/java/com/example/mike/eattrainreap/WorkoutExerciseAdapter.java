@@ -26,16 +26,17 @@ import java.util.ArrayList;
 
 public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
 
-    // create variables for views
+    // create variables for textviews and edittexts
     private TextView exerciseName;
-//    private EditText set1, set2, set3;
-    private TextView set1_text, set2_text, set3_text, rest_text;
+    private TextView set1_text, set2_text, set3_text, set4_text, set5_text, rest_text;
+    private EditText set1_edit, set2_edit, set3_edit, set4_edit, set5_edit, rest_edit;
 
 
-    ViewSwitcher vs_name, vs1, vs2, vs3, vs_rest;
-    Button addExercise;
-    Button findExercise;
-    Button add;
+    // create variables for ViewSwitchers and buttons
+    private ViewSwitcher vs_name, vs1, vs2, vs3, vs4, vs5, vs_rest;
+    Button findExercise, add;
+
+    private WorkoutExercise2 current;
 
     // create arraylist to store workout exercises
     private ArrayList<WorkoutExercise2> workoutExercises;
@@ -46,7 +47,7 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
         this.workoutExercises = workoutExercises;
     }
 
-    // link workout exercise information to row in list view
+    // binds info to views in row(s)
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -54,57 +55,72 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.workout_exercise_row_editable, parent, false);
         }
 
-//        final WorkoutExercise2 itemLongClicked = MyWorkoutsActivity.workoutExercises.get(position);
-
         // get workout exercise for that position in list view
-        final WorkoutExercise2 current = workoutExercises.get(position);
+        current = workoutExercises.get(position);
 
-        // link variables to views
+        // link variables to textviews
         exerciseName = convertView.findViewById(R.id.ex_name);
         set1_text = convertView.findViewById(R.id.set_1_text);
         set2_text = convertView.findViewById(R.id.set_2_text);
         set3_text = convertView.findViewById(R.id.set_3_text);
+        set4_text = convertView.findViewById(R.id.set_4_text);
+        set5_text = convertView.findViewById(R.id.set_5_text);
         rest_text = convertView.findViewById(R.id.rest_text);
 
-        final EditText set1_edit = convertView.findViewById(R.id.set_1_edit);
-        final EditText set2_edit = convertView.findViewById(R.id.set_2_edit);
-        final EditText set3_edit = convertView.findViewById(R.id.set_3_edit);
-        final EditText rest_edit = convertView.findViewById(R.id.rest_edit);
+        // link variables to edittexts
+        set1_edit = convertView.findViewById(R.id.set_1_edit);
+        set2_edit = convertView.findViewById(R.id.set_2_edit);
+        set3_edit = convertView.findViewById(R.id.set_3_edit);
+        set4_edit = convertView.findViewById(R.id.set_4_edit);
+        set5_edit = convertView.findViewById(R.id.set_5_edit);
+        rest_edit = convertView.findViewById(R.id.rest_edit);
 
+        // if exercise is selected, show exercise name
         if (current.getExercise() != null) {
             exerciseName.setText(current.getExercise().getName());
         }
-//        else {
-//            exerciseName.setText("choose an exercise");
-//        }
+        else {
+            exerciseName.setText("No exercise selected");
+        }
 
+        // set textviews and edittexts to current information
         set1_text.setText(String.valueOf(current.getSet1()));
         set2_text.setText(String.valueOf(current.getSet2()));
         set3_text.setText(String.valueOf(current.getSet3()));
+        set4_text.setText(String.valueOf(current.getSet4()));
+        set5_text.setText(String.valueOf(current.getSet5()));
         rest_text.setText(String.valueOf(current.getRest()));
+        set1_edit.setText(String.valueOf(current.getSet1()));
+        set2_edit.setText(String.valueOf(current.getSet2()));
+        set3_edit.setText(String.valueOf(current.getSet3()));
+        set4_edit.setText(String.valueOf(current.getSet4()));
+        set5_edit.setText(String.valueOf(current.getSet5()));
+        rest_edit.setText(String.valueOf(current.getRest()));
 
-        set1_edit.setText(String.valueOf(current.getSet1()), TextView.BufferType.EDITABLE);
-        set2_edit.setText(String.valueOf(current.getSet2()), TextView.BufferType.EDITABLE);
-        set3_edit.setText(String.valueOf(current.getSet3()), TextView.BufferType.EDITABLE);
-        rest_edit.setText(String.valueOf(current.getRest()), TextView.BufferType.EDITABLE);
-
+        // link variables to viewswitchers
         vs_name = convertView.findViewById(R.id.switcher_name);
         vs1 = convertView.findViewById(R.id.switcher_1);
         vs2 = convertView.findViewById(R.id.switcher_2);
         vs3 = convertView.findViewById(R.id.switcher_3);
+        vs4 = convertView.findViewById(R.id.switcher_4);
+        vs5 = convertView.findViewById(R.id.switcher_5);
         vs_rest = convertView.findViewById(R.id.switcher_rest);
 
+        // link variables to buttons
         add = convertView.findViewById(R.id.add);
         findExercise = convertView.findViewById(R.id.find_ex);
 
+        // make rows uneditable by default
         vs_name.setDisplayedChild(1);
         vs1.setDisplayedChild(1);
         vs2.setDisplayedChild(1);
         vs3.setDisplayedChild(1);
+        vs4.setDisplayedChild(1);
+        vs5.setDisplayedChild(1);
         vs_rest.setDisplayedChild(1);
-
         add.setVisibility(View.INVISIBLE);
 
+        // when clicked on "Find exercise"
         findExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,73 +129,128 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                 current.setSet1(Integer.parseInt(set1_edit.getText().toString()));
                 current.setSet2(Integer.parseInt(set2_edit.getText().toString()));
                 current.setSet3(Integer.parseInt(set3_edit.getText().toString()));
+                current.setSet4(Integer.parseInt(set4_edit.getText().toString()));
+                current.setSet5(Integer.parseInt(set5_edit.getText().toString()));
                 current.setRest(Integer.parseInt(rest_edit.getText().toString()));
                 notifyDataSetChanged();
 
+                // go to findExerciseActivity; remember position of workout exercise
                 Intent intent = new Intent(getContext(), FindExerciseActivity.class);
                 intent.putExtra("position", position);
                 intent.putExtra("forWorkout", true);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 v.getContext().startActivity(intent);
             }
         });
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("add clicked", "add clicked");
-//                String name = current.getExercise().getName();
+        // when clicked on "add"
+//        add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Toast.makeText(getContext(), "add button clicked", Toast.LENGTH_SHORT).show();
+//
+//                // get info typed in by user
+//                int set1 = Integer.parseInt(set1_edit.getText().toString());
+//                int set2 = Integer.parseInt(set2_edit.getText().toString());
+//                int set3 = Integer.parseInt(set3_edit.getText().toString());
+//                int rest = Integer.parseInt(rest_edit.getText().toString());
+//
+//                // set workout exercise info and notify adapter
+//                current.setSet1(set1);
+//                current.setSet2(set2);
+//                current.setSet3(set3);
+//                current.setRest(rest);
+//
+//                notifyDataSetChanged();
+//            }
+//        });
 
-                int set1 = Integer.parseInt(set1_edit.getText().toString());
-                int set2 = Integer.parseInt(set2_edit.getText().toString());
-                int set3 = Integer.parseInt(set3_edit.getText().toString());
-                int rest = Integer.parseInt(rest_edit.getText().toString());
 
-                current.setSet1(set1);
-                current.setSet2(set2);
-                current.setSet3(set3);
-                current.setRest(rest);
-
-                notifyDataSetChanged();
-            }
-        });
-
-
+        // when long-clicked on a row
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getContext(), "Clicked row was " + position, Toast.LENGTH_SHORT).show();
+            public boolean onLongClick(final View v) {
+
 
                 // construct pop-up menu with title
                 final String[] options = {"Edit", "Delete", "Cancel"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Select");
 
-
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch(which) {
-
-                            // if user chooses "Edit", make row editable
                             case 0:
+
+                                // if user chooses "edit", make row editable
+                                vs_name = v.findViewById(R.id.switcher_name);
+                                vs1 = v.findViewById(R.id.switcher_1);
+                                vs2 = v.findViewById(R.id.switcher_2);
+                                vs3 = v.findViewById(R.id.switcher_3);
+                                vs4 = v.findViewById(R.id.switcher_4);
+                                vs5 = v.findViewById(R.id.switcher_5);
+                                vs_rest = v.findViewById(R.id.switcher_rest);
+                                add = v.findViewById(R.id.add);
+
+                                set1_edit = v.findViewById(R.id.set_1_edit);
+                                set2_edit = v.findViewById(R.id.set_2_edit);
+                                set3_edit = v.findViewById(R.id.set_3_edit);
+                                set4_edit = v.findViewById(R.id.set_4_edit);
+                                set5_edit = v.findViewById(R.id.set_5_edit);
+                                rest_edit = v.findViewById(R.id.rest_edit);
+
                                 vs_name.setDisplayedChild(0);
                                 vs1.setDisplayedChild(0);
                                 vs2.setDisplayedChild(0);
                                 vs3.setDisplayedChild(0);
+                                vs4.setDisplayedChild(0);
+                                vs5.setDisplayedChild(0);
                                 vs_rest.setDisplayedChild(0);
-
                                 add.setVisibility(View.VISIBLE);
 
-                                Toast.makeText(getContext(), "'edit' clicked", Toast.LENGTH_SHORT).show();
+                                add.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                        Toast.makeText(getContext(), "add button clicked", Toast.LENGTH_SHORT).show();
+
+                                        // get info typed in by user
+                                        int set1 = Integer.parseInt(set1_edit.getText().toString());
+                                        int set2 = Integer.parseInt(set2_edit.getText().toString());
+                                        int set3 = Integer.parseInt(set3_edit.getText().toString());
+                                        int set4 = Integer.parseInt(set4_edit.getText().toString());
+                                        int set5 = Integer.parseInt(set5_edit.getText().toString());
+                                        int rest = Integer.parseInt(rest_edit.getText().toString());
+
+//                                        String test = Integer.toString(set1)+", "+Integer.toString(set2)+", "+Integer.toString(set3);
+//                                        Toast.makeText(getContext(), test, Toast.LENGTH_SHORT).show();
+
+                                        // set workout exercise info
+                                        workoutExercises.get(position).setSet1(set1);
+                                        workoutExercises.get(position).setSet2(set2);
+                                        workoutExercises.get(position).setSet3(set3);
+                                        workoutExercises.get(position).setSet4(set4);
+                                        workoutExercises.get(position).setSet5(set5);
+                                        workoutExercises.get(position).setRest(rest);
+
+                                        // notify adapter
+                                        notifyDataSetChanged();
+                                    }
+                                });
 
                                 break;
                             case 1:
-                                MyWorkoutsActivity.workoutExercises.remove(current);
+
+                                // if user clicks "Delete", remove workout exercise and notify adapter
+                                workoutExercises.remove(current);
+
                                 notifyDataSetChanged();
                                 Toast.makeText(getContext(), "exercise deleted", Toast.LENGTH_SHORT).show();
                                 break;
                             case 2:
+
+                                // when clicked on "Cancel"
                                 dialog.dismiss();
                                 Toast.makeText(getContext(), "cancelled", Toast.LENGTH_SHORT).show();
                                 break;
