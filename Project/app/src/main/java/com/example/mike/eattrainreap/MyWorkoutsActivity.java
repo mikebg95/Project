@@ -16,7 +16,6 @@ public class MyWorkoutsActivity extends AppCompatActivity {
 
     // variables for buttons
     Button workoutSchedule;
-    Button previousWorkouts;
     Button newWorkout;
 
     // variable for intent

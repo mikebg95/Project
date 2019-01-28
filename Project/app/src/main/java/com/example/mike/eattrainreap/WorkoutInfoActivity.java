@@ -38,7 +38,12 @@ public class WorkoutInfoActivity extends AppCompatActivity {
         // fill in values in views
         muscle.setText(muscleString);
         day.setText(dayString);
-        comment.setText(commentString);
+        if (commentString.equals("")) {
+            comment.setText("No comment added");
+        }
+        else {
+            comment.setText(commentString);
+        }
         date.setText(dateString);
 
         // link listview to workout exercises via adapter

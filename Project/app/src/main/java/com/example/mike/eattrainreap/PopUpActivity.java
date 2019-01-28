@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -47,6 +48,9 @@ public class PopUpActivity extends Activity implements Serializable {
         exDescription = findViewById(R.id.description);
         favorite = findViewById(R.id.button);
 
+        // make possible to scroll within description textview (in case of long description)
+        exEquipment.setMovementMethod(new ScrollingMovementMethod());
+
         // get relevant exercise from intent
         Intent intent = getIntent();
         final Exercise exercise = (Exercise) intent.getSerializableExtra("exercise");
@@ -66,12 +70,41 @@ public class PopUpActivity extends Activity implements Serializable {
             }
         }
 
+        String name = exercise.getName();
+        String descr = exercise.getDescription();
+        String equip = exercise.getEquipment();
+        String mus = exercise.getMuscles();
+        String secMus = exercise.getSecondaryMuscles();
+
         // set layout views to relevant information
-        exName.setText(exercise.getName());
-        exDescription.setText(exercise.getDescription());
-        exEquipment.setText(exercise.getEquipment());
-        exMuscles.setText(exercise.getMuscles());
-        exSecMuscles.setText(exercise.getSecondaryMuscles());
+        if (name.equals("")) {
+            name = "N/A";
+        }
+
+        if (descr.equals("")) {
+            descr = "N/A";
+        }
+        else {
+            descr = descr.substring(3, descr.length() - 4);
+        }
+
+        if (equip.equals("")) {
+            equip = "N/A";
+        }
+
+        if (mus.equals("")) {
+            mus = "N/A";
+        }
+
+        if (secMus.equals("")) {
+            secMus = "N/A";
+        }
+
+        exName.setText(name);
+        exDescription.setText(descr);
+        exMuscles.setText(mus);
+        exEquipment.setText(equip);
+        exSecMuscles.setText(secMus);
 
         // when button clicked, add/delete exercise to/from either favorites or add to workout exercise
         favorite.setOnClickListener(new View.OnClickListener() {

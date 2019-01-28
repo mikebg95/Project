@@ -171,8 +171,12 @@ public class ExercisesRequest {
                     break;
             }
         }
-//        return musclesString.substring(0, musclesString.length() - 2);
-        return musclesString;
+        if (musclesString.length() > 1) {
+            return musclesString.substring(0, musclesString.length() - 2);
+        }
+        else {
+            return musclesString;
+        }
     }
 
     // takes arraylist of integers as argument and returns string with equipment needed
@@ -213,7 +217,12 @@ public class ExercisesRequest {
             }
         }
 
-        return equipmentString;
+        if (equipmentString.length() > 1) {
+            return equipmentString.substring(0, equipmentString.length() - 2);
+        }
+        else {
+            return equipmentString;
+        }
     }
 
 }

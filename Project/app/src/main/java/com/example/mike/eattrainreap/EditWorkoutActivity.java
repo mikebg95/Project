@@ -93,17 +93,16 @@ public class EditWorkoutActivity extends AppCompatActivity {
                 String comment = changeComment.getText().toString();
                 MyWorkoutsActivity.workouts.get(pos).setComment(comment);
 
-                // set edited workout exercises
-                MyWorkoutsActivity.workouts.get(pos).setWorkoutExercises(MyWorkoutsActivity.workoutExercises);
 
                 // get and set current date
                 String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 MyWorkoutsActivity.workouts.get(pos).setTimestamp(date);
 
                 // clear arraylist of workoutexercises
-                MyWorkoutsActivity.workoutExercises.clear();
+//                MyWorkoutsActivity.workoutExercises.clear();
 
                 Intent intent = new Intent(EditWorkoutActivity.this, WorkoutScheduleActivity.class);
+                intent.putExtra("pos", pos);
                 startActivity(intent);
 
 

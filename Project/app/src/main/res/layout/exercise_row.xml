@@ -33,7 +33,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/muscle_group"
+        android:id="@+id/workout_day"
         android:layout_width="157dp"
         android:layout_height="32dp"
         android:layout_alignParentTop="true"

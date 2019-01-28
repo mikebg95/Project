@@ -7,14 +7,59 @@
     android:windowSoftInputMode="adjustPan"
     tools:context=".NewWorkoutActivity">
 
+    <View
+        android:id="@+id/view5"
+        android:layout_width="382dp"
+        android:layout_height="5dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/darker_gray"
+
+        app:layout_constraintBottom_toTopOf="@+id/new_exercise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/new_exercise"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="casual"
+        android:text="Add exercise"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/save_workout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/save_workout"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="casual"
+        android:text="save workout"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="368dp"
-        android:layout_height="505dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -81,36 +126,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-            <Button
-                android:id="@+id/new_exercise"
-                android:layout_width="366dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="casual"
-                android:text="Add exercise"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/save_workout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/save_workout"
-                android:layout_width="366dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="casual"
-                android:text="save workout"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <View
                 android:id="@+id/view"
                 android:layout_width="382dp"
@@ -133,18 +148,6 @@
                 app:layout_constraintStart_toEndOf="@+id/workout_muscles"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
-
-            <View
-                android:id="@+id/view5"
-                android:layout_width="382dp"
-                android:layout_height="5dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/darker_gray"
-
-                app:layout_constraintBottom_toTopOf="@+id/new_exercise"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent" />
 
             <!--<ScrollView-->
             <!--android:id="@+id/scrollview"-->
@@ -196,15 +199,15 @@
 
             <ListView
                 android:id="@+id/workout_exercises"
-                android:layout_width="374dp"
-                android:layout_height="285dp"
+                android:layout_width="375dp"
+                android:layout_height="289dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                app:layout_constraintBottom_toTopOf="@+id/view5"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view">

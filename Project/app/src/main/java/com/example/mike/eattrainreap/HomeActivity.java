@@ -24,7 +24,6 @@ public class HomeActivity extends AppCompatActivity {
 
         // link variables to buttons
         Button myWorkouts = findViewById(R.id.myWorkouts);
-        Button goalsProgress = findViewById(R.id.goalsProgress);
         Button exercises = findViewById(R.id.exercises_info);
 
         // when clicked on button, go to corresponding activity (via intent)
@@ -32,14 +31,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(HomeActivity.this, MyWorkoutsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        goalsProgress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(HomeActivity.this, GoalsProgressActivity.class);
                 startActivity(intent);
             }
         });

@@ -9,8 +9,8 @@
         android:layout_height="15dp"
         android:layout_alignBottom="@+id/switcher_name"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toEndOf="@+id/switcher_name"
+        android:layout_marginBottom="-1dp"
+        android:layout_toEndOf="@+id/set"
         android:fontFamily="casual"
         android:gravity="center"
         android:text="1"
@@ -74,58 +74,66 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/reps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/add"
-        android:layout_alignEnd="@+id/textView25"
-        android:layout_marginEnd="1dp"
+        android:layout_alignBaseline="@+id/switcher_2"
+        android:layout_marginStart="-7dp"
+        android:layout_toEndOf="@+id/switcher_name"
         android:text="reps"
         android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/kg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/reps"
         android:layout_alignBaseline="@+id/switcher_kg1"
-        android:layout_marginEnd="-0dp"
-        android:layout_toStartOf="@+id/textView8"
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@+id/switcher_name"
         android:text="kg"
         android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/kg"
         android:layout_alignBaseline="@+id/textView8"
-        android:layout_marginEnd="-0dp"
-        android:layout_toStartOf="@+id/textView8"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/switcher_name"
         android:text="set"
         android:textSize="10sp" />
 
     <ViewSwitcher
         android:id="@+id/switcher_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="94dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginEnd="8dp">
 
         <Button
             android:id="@+id/find_ex"
-            android:layout_width="135dp"
+            android:layout_width="113dp"
             android:layout_height="98dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="-2dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="casual"
             android:text="find exercise"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/ex_name"
-            android:layout_width="154dp"
+            android:layout_width="113dp"
             android:layout_height="98dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="casual"
             android:gravity="center"
             android:text="TextView"
@@ -138,7 +146,8 @@
         android:id="@+id/switcher_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/switcher_name">
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/reps">
 
         <EditText
             android:id="@+id/set_1_edit"
@@ -157,7 +166,7 @@
         <TextView
             android:id="@+id/set_1_text"
             android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:fontFamily="casual"
             android:gravity="center"
             android:text="0"
@@ -173,15 +182,16 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView8"
         android:layout_below="@+id/switcher_1"
-        android:layout_alignStart="@+id/switcher_1"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/kg">
 
         <EditText
             android:id="@+id/kg1_edit"
             android:layout_width="25dp"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/switcher_kg1"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
@@ -531,11 +541,12 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/switcher_rest"
         android:layout_alignTop="@+id/textView8"
-        android:layout_marginStart="-7dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="-15dp"
+        android:layout_toEndOf="@+id/textView23"
         android:fontFamily="casual"
         android:gravity="center"
         android:text="rest (s)"
@@ -545,13 +556,16 @@
 
     <ViewSwitcher
         android:id="@+id/switcher_rest"
-        android:layout_width="wrap_content"
+        android:layout_width="26dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView15"
         android:layout_alignTop="@+id/switcher_5"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:layout_toLeftOf="@+id/add">
+        android:layout_marginBottom="8dp"
+        android:layout_toLeftOf="@+id/add"
+        android:layout_toEndOf="@+id/switcher_kg5">
 
         <EditText
             android:id="@+id/rest_edit"

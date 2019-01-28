@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterable {
 
@@ -95,7 +93,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterabl
 
         // link variables to views
         name = convertView.findViewById(R.id.name);
-        muscle = convertView.findViewById(R.id.muscle_group);
+        muscle = convertView.findViewById(R.id.workout_day);
         equipment = convertView.findViewById(R.id.equipment);
 
         // set textviews to relevant info

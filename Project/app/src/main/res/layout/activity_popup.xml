@@ -7,59 +7,78 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
+        android:layout_width="280dp"
+        android:layout_height="122dp"
+        android:layout_alignStart="@+id/button"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
+        android:layout_marginStart="-47dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="casual"
         android:gravity="center"
         android:text="Name"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/muscle_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/textView27"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="muscles"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/secondary_muscles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/muscle_info"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="75dp"
+        android:layout_toEndOf="@+id/textView28"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="secondary muscles"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/equipment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView29"
+        android:layout_alignStart="@+id/textView29"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="-1dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="equipment"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/muscle_info"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/name"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="muscles"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/secondary_muscles"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/muscle_info"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="secondary muscles"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/equipment"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/secondary_muscles"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="equipment"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/description"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
+        android:layout_width="273dp"
+        android:layout_height="170dp"
         android:layout_below="@+id/equipment"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:fontFamily="casual"
         android:gravity="center"
+        android:scrollbars="vertical"
         android:text="description"
-        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <Button
@@ -68,5 +87,55 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/description"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="1dp"
         android:text="Add to favorites" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignStart="@+id/name"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="casual"
+        android:text="Primary muscle(s):"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView27"
+        android:layout_alignStart="@+id/name"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:text="Secondary muscle(s):"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondary_muscles"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Equipment used:"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/equipment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="casual"
+        android:text="Description:"
+        android:textSize="12sp" />
+
 </RelativeLayout>

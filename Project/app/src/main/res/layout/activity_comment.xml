@@ -14,6 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp"
+        android:fontFamily="casual"
         android:text="Please add a comment (optional)"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -26,8 +27,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="110dp"
         android:ems="10"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:inputType="textPersonName"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
         android:textSize="24sp" />
 
     <Button
@@ -37,5 +40,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="81dp"
-        android:text="Add comment" />
+        android:fontFamily="casual"
+        android:text="Add comment"
+        android:textStyle="bold" />
 </RelativeLayout>

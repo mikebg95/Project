@@ -20,10 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyWorkoutsActivity" />
-        <activity android:name=".GoalsProgressActivity" />
         <activity android:name=".ExercisesActivity" />
         <activity android:name=".WorkoutScheduleActivity" />
-        <activity android:name=".WorkoutActivity" />
         <activity android:name=".FindExerciseActivity" />
         <activity android:name=".SavedExercisesActivity" />
         <activity

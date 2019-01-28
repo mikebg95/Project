@@ -144,7 +144,7 @@ public class NewWorkoutActivity extends AppCompatActivity {
                     workoutExercises.addAll(MyWorkoutsActivity.workoutExercises);
 
                     // create new workout and add to workouts
-                    Workout newWorkout = new Workout(workoutExercises, day, muscle, "", "added/edited on: " + date);
+                    Workout newWorkout = new Workout(workoutExercises, day, muscle, "", "added/edited " + date);
 
                     // clear workout exercises and day and muscle edittext's
                     day = "";
