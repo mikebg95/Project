@@ -1,28 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@+id/switcher_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/switcher_name"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@+id/switcher_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/textView8"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@+id/switcher_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/textView9"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="3"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="25dp"
-        android:layout_height="wrap_content"
+        android:layout_height="15dp"
         android:layout_alignBottom="@+id/switcher_name"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="0dp"
         android:layout_toEndOf="@+id/textView22"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:text="5"
-        android:textAlignment="center" />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="25dp"
-        android:layout_height="wrap_content"
+        android:layout_height="15dp"
         android:layout_alignBottom="@+id/switcher_name"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="0dp"
         android:layout_toEndOf="@+id/textView14"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:text="4"
-        android:textAlignment="center" />
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/add"
+        android:layout_alignEnd="@+id/textView25"
+        android:layout_marginEnd="1dp"
+        android:text="reps"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/switcher_kg1"
+        android:layout_marginEnd="-0dp"
+        android:layout_toStartOf="@+id/textView8"
+        android:text="kg"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_marginEnd="-0dp"
+        android:layout_toStartOf="@+id/textView8"
+        android:text="set"
+        android:textSize="10sp" />
 
     <ViewSwitcher
         android:id="@+id/switcher_name"
@@ -31,55 +110,29 @@
 
         <Button
             android:id="@+id/find_ex"
-            android:layout_width="152dp"
-            android:layout_height="66dp"
+            android:layout_width="135dp"
+            android:layout_height="98dp"
             android:layout_alignParentStart="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="-2dp"
-            android:text="find exercise" />
+            android:fontFamily="casual"
+            android:text="find exercise"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/ex_name"
             android:layout_width="154dp"
-            android:layout_height="64dp"
+            android:layout_height="98dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="1dp"
-            android:text="TextView" />
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="25dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/switcher_name"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="2dp"
-        android:layout_toEndOf="@+id/switcher_name"
-        android:text="1"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="25dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/switcher_name"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="2dp"
-        android:layout_toEndOf="@+id/textView8"
-        android:text="2"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="25dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/switcher_name"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="2dp"
-        android:layout_toEndOf="@+id/textView9"
-        android:text="3"
-        android:textAlignment="center" />
 
     <ViewSwitcher
         android:id="@+id/switcher_1"
@@ -90,20 +143,107 @@
         <EditText
             android:id="@+id/set_1_edit"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
             android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
             android:visibility="visible" />
 
         <TextView
             android:id="@+id/set_1_text"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
             android:text="0"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_kg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView8"
+        android:layout_below="@+id/switcher_1"
+        android:layout_alignStart="@+id/switcher_1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <EditText
+            android:id="@+id/kg1_edit"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/kg1_text"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </ViewSwitcher>
+
+    <!--<ViewSwitcher-->
+        <!--android:id="@+id/switcher_kg1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:layout_above="@+id/textView8"-->
+        <!--android:layout_below="@+id/switcher_1"-->
+        <!--android:layout_marginStart="-2dp"-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:layout_marginBottom="-1dp"-->
+        <!--android:layout_toEndOf="@+id/switcher_name">-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/kg_1_edit"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:layout_below="@+id/switcher_kg1"-->
+            <!--android:layout_alignStart="@+id/switcher_kg1"-->
+            <!--android:layout_marginTop="-23dp"-->
+            <!--android:clickable="true"-->
+            <!--android:ems="10"-->
+            <!--android:focusable="true"-->
+            <!--android:fontFamily="casual"-->
+            <!--android:gravity="center"-->
+            <!--android:inputType="number"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:visibility="visible" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/kg_1_text"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:fontFamily="casual"-->
+            <!--android:gravity="center"-->
+            <!--android:text="0"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="bold" />-->
+    <!--</ViewSwitcher>-->
 
 
     <ViewSwitcher
@@ -115,19 +255,66 @@
         <EditText
             android:id="@+id/set_2_edit"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
             android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
             android:visibility="visible" />
 
         <TextView
             android:id="@+id/set_2_text"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="25dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:textAlignment="center"
             android:text="0"
-            android:textAlignment="center" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_kg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView9"
+        android:layout_below="@+id/switcher_2"
+        android:layout_alignStart="@+id/switcher_2"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <EditText
+            android:id="@+id/kg2_edit"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/kg2_text"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
 
     <ViewSwitcher
@@ -139,19 +326,66 @@
         <EditText
             android:id="@+id/set_3_edit"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
             android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
             android:visibility="visible" />
 
         <TextView
             android:id="@+id/set_3_text"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="25dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:textAlignment="center"
             android:text="0"
-            android:textAlignment="center" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_kg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView14"
+        android:layout_below="@+id/switcher_3"
+        android:layout_alignStart="@+id/switcher_3"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <EditText
+            android:id="@+id/kg3_edit"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/kg3_text"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
 
     <ViewSwitcher
@@ -163,18 +397,65 @@
         <EditText
             android:id="@+id/set_4_edit"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
-            android:inputType="number" />
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/set_4_text"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:textAlignment="center"
             android:text="0"
-            android:textAlignment="center" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_kg4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView22"
+        android:layout_below="@+id/switcher_4"
+        android:layout_alignStart="@+id/switcher_4"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <EditText
+            android:id="@+id/kg4_edit"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/kg4_text"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
 
     <ViewSwitcher
@@ -186,20 +467,66 @@
         <EditText
             android:id="@+id/set_5_edit"
             android:layout_width="25dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
-            android:inputType="number" />
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/set_5_text"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:textAlignment="center"
             android:text="0"
-            android:textAlignment="center" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
 
+    <ViewSwitcher
+        android:id="@+id/switcher_kg5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView23"
+        android:layout_below="@+id/switcher_5"
+        android:layout_alignStart="@+id/switcher_5"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <EditText
+            android:id="@+id/kg5_edit"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/kg5_text"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </ViewSwitcher>
 
 
     <TextView
@@ -208,44 +535,62 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/switcher_rest"
         android:layout_alignTop="@+id/textView8"
-        android:layout_marginStart="-4dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="-7dp"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:text="rest (s)"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textStyle="bold" />
 
     <ViewSwitcher
         android:id="@+id/switcher_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/textView15"
+        android:layout_alignTop="@+id/switcher_5"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="10dp"
         android:layout_toLeftOf="@+id/add">
 
         <EditText
             android:id="@+id/rest_edit"
             android:layout_width="25dp"
             android:layout_height="45dp"
+            android:layout_alignStart="@+id/switcher_rest"
             android:clickable="true"
             android:ems="10"
             android:focusable="true"
-            android:inputType="number" />
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/rest_text"
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:fontFamily="casual"
+            android:gravity="center"
             android:text="0"
-            android:textAlignment="center" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
     </ViewSwitcher>
 
     <Button
         android:id="@+id/add"
-        android:layout_width="45dp"
-        android:layout_height="37dp"
+        android:layout_width="31dp"
+        android:layout_height="74dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="26dp"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:text="add"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

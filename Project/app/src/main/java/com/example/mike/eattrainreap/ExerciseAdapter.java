@@ -82,7 +82,6 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterabl
         }
     }
 
-    // TODO: DOESN't WORK CORRECTLY (IndexOutOfBoundsException (line 92))
     // link exercise information to row in list view
     @NonNull
     @Override

@@ -13,7 +13,13 @@ public class WorkoutExercise2 implements Serializable {
     private int set5;
     private int rest;
 
-    public WorkoutExercise2(Exercise exercise, int set1, int set2, int set3, int set4, int set5, int rest) {
+    private int kg1;
+    private int kg2;
+    private int kg3;
+    private int kg4;
+    private int kg5;
+
+    public WorkoutExercise2(Exercise exercise, int set1, int set2, int set3, int set4, int set5, int rest, int kg1, int kg2, int kg3, int kg4, int kg5) {
         this.exercise = exercise;
         this.set1 = set1;
         this.set2 = set2;
@@ -21,7 +27,14 @@ public class WorkoutExercise2 implements Serializable {
         this.set4 = set4;
         this.set5 = set5;
         this.rest = rest;
+        this.kg1 = kg1;
+        this.kg2 = kg2;
+        this.kg3 = kg3;
+        this.kg4 = kg4;
+        this.kg5 = kg5;
     }
+
+
 
     // getters for this class
     public Exercise getExercise() {
@@ -45,6 +58,21 @@ public class WorkoutExercise2 implements Serializable {
     public int getRest() {
         return rest;
     }
+    public int getKg1() {
+        return kg1;
+    }
+    public int getKg2() {
+        return kg2;
+    }
+    public int getKg3() {
+        return kg3;
+    }
+    public int getKg4() {
+        return kg4;
+    }
+    public int getKg5() {
+        return kg5;
+    }
 
     // setters for this workout
     public void setExercise(Exercise exercise) {
@@ -67,5 +95,20 @@ public class WorkoutExercise2 implements Serializable {
     }
     public void setRest(int rest) {
         this.rest = rest;
+    }
+    public void setKg1(int kg1) {
+        this.kg1 = kg1;
+    }
+    public void setKg2(int kg2) {
+        this.kg2 = kg2;
+    }
+    public void setKg3(int kg3) {
+        this.kg3 = kg3;
+    }
+    public void setKg4(int kg4) {
+        this.kg4 = kg4;
+    }
+    public void setKg5(int kg5) {
+        this.kg5 = kg5;
     }
 }

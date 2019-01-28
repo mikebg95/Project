@@ -61,7 +61,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // create new workout exercise object with default values
-                WorkoutExercise2 newEx = new WorkoutExercise2(null, 0, 0, 0, 0, 0, 0);
+                WorkoutExercise2 newEx = new WorkoutExercise2(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                 // add to arraylist of exercises for that workout and notify adapter
                 MyWorkoutsActivity.workouts.get(pos).getWorkoutExercises().add(newEx);

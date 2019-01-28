@@ -6,13 +6,17 @@
 
     <TextView
         android:id="@+id/equipment"
-        android:layout_width="99dp"
+        android:layout_width="157dp"
         android:layout_height="32dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-1dp"
         android:layout_marginTop="31dp"
         android:layout_toEndOf="@+id/name"
-        android:text="TextView" />
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/name"
@@ -22,15 +26,23 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:text="TextView" />
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/muscle_group"
-        android:layout_width="99dp"
+        android:layout_width="157dp"
         android:layout_height="32dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/name"
-        android:text="TextView" />
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!--<RatingBar-->
         <!--android:id="@+id/favorite"-->

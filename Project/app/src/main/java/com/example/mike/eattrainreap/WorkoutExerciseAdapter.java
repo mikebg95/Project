@@ -31,9 +31,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
     private TextView set1_text, set2_text, set3_text, set4_text, set5_text, rest_text;
     private EditText set1_edit, set2_edit, set3_edit, set4_edit, set5_edit, rest_edit;
 
+    private TextView kg1_text, kg2_text, kg3_text, kg4_text, kg5_text;
+    private EditText kg1_edit, kg2_edit, kg3_edit, kg4_edit, kg5_edit;
 
     // create variables for ViewSwitchers and buttons
     private ViewSwitcher vs_name, vs1, vs2, vs3, vs4, vs5, vs_rest;
+    private ViewSwitcher vs_kg1, vs_kg2, vs_kg3, vs_kg4, vs_kg5;
     Button findExercise, add;
 
     private WorkoutExercise2 current;
@@ -67,6 +70,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
         set5_text = convertView.findViewById(R.id.set_5_text);
         rest_text = convertView.findViewById(R.id.rest_text);
 
+        kg1_text = convertView.findViewById(R.id.kg1_text);
+        kg2_text = convertView.findViewById(R.id.kg2_text);
+        kg3_text = convertView.findViewById(R.id.kg3_text);
+        kg4_text = convertView.findViewById(R.id.kg4_text);
+        kg5_text = convertView.findViewById(R.id.kg5_text);
+
         // link variables to edittexts
         set1_edit = convertView.findViewById(R.id.set_1_edit);
         set2_edit = convertView.findViewById(R.id.set_2_edit);
@@ -74,6 +83,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
         set4_edit = convertView.findViewById(R.id.set_4_edit);
         set5_edit = convertView.findViewById(R.id.set_5_edit);
         rest_edit = convertView.findViewById(R.id.rest_edit);
+
+        kg1_edit = convertView.findViewById(R.id.kg1_edit);
+        kg2_edit = convertView.findViewById(R.id.kg2_edit);
+        kg3_edit = convertView.findViewById(R.id.kg3_edit);
+        kg4_edit = convertView.findViewById(R.id.kg4_edit);
+        kg5_edit = convertView.findViewById(R.id.kg5_edit);
 
         // if exercise is selected, show exercise name
         if (current.getExercise() != null) {
@@ -90,12 +105,25 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
         set4_text.setText(String.valueOf(current.getSet4()));
         set5_text.setText(String.valueOf(current.getSet5()));
         rest_text.setText(String.valueOf(current.getRest()));
+
+        kg1_text.setText(String.valueOf(current.getKg1()));
+        kg2_text.setText(String.valueOf(current.getKg2()));
+        kg3_text.setText(String.valueOf(current.getKg3()));
+        kg4_text.setText(String.valueOf(current.getKg4()));
+        kg5_text.setText(String.valueOf(current.getKg5()));
+
         set1_edit.setText(String.valueOf(current.getSet1()));
         set2_edit.setText(String.valueOf(current.getSet2()));
         set3_edit.setText(String.valueOf(current.getSet3()));
         set4_edit.setText(String.valueOf(current.getSet4()));
         set5_edit.setText(String.valueOf(current.getSet5()));
         rest_edit.setText(String.valueOf(current.getRest()));
+
+        kg1_edit.setText(String.valueOf(current.getKg1()));
+        kg2_edit.setText(String.valueOf(current.getKg2()));
+        kg3_edit.setText(String.valueOf(current.getKg3()));
+        kg4_edit.setText(String.valueOf(current.getKg4()));
+        kg5_edit.setText(String.valueOf(current.getKg5()));
 
         // link variables to viewswitchers
         vs_name = convertView.findViewById(R.id.switcher_name);
@@ -105,6 +133,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
         vs4 = convertView.findViewById(R.id.switcher_4);
         vs5 = convertView.findViewById(R.id.switcher_5);
         vs_rest = convertView.findViewById(R.id.switcher_rest);
+
+        vs_kg1 = convertView.findViewById(R.id.switcher_kg1);
+        vs_kg2 = convertView.findViewById(R.id.switcher_kg2);
+        vs_kg3 = convertView.findViewById(R.id.switcher_kg3);
+        vs_kg4 = convertView.findViewById(R.id.switcher_kg4);
+        vs_kg5 = convertView.findViewById(R.id.switcher_kg5);
 
         // link variables to buttons
         add = convertView.findViewById(R.id.add);
@@ -117,6 +151,13 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
         vs3.setDisplayedChild(1);
         vs4.setDisplayedChild(1);
         vs5.setDisplayedChild(1);
+
+        vs_kg1.setDisplayedChild(1);
+        vs_kg2.setDisplayedChild(1);
+        vs_kg3.setDisplayedChild(1);
+        vs_kg4.setDisplayedChild(1);
+        vs_kg5.setDisplayedChild(1);
+
         vs_rest.setDisplayedChild(1);
         add.setVisibility(View.INVISIBLE);
 
@@ -132,6 +173,13 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                 current.setSet4(Integer.parseInt(set4_edit.getText().toString()));
                 current.setSet5(Integer.parseInt(set5_edit.getText().toString()));
                 current.setRest(Integer.parseInt(rest_edit.getText().toString()));
+
+                current.setKg1(Integer.parseInt(kg1_edit.getText().toString()));
+                current.setKg2(Integer.parseInt(kg2_edit.getText().toString()));
+                current.setKg3(Integer.parseInt(kg3_edit.getText().toString()));
+                current.setKg4(Integer.parseInt(kg4_edit.getText().toString()));
+                current.setKg5(Integer.parseInt(kg5_edit.getText().toString()));
+
                 notifyDataSetChanged();
 
                 // go to findExerciseActivity; remember position of workout exercise
@@ -191,6 +239,13 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                                 vs4 = v.findViewById(R.id.switcher_4);
                                 vs5 = v.findViewById(R.id.switcher_5);
                                 vs_rest = v.findViewById(R.id.switcher_rest);
+
+                                vs_kg1 = v.findViewById(R.id.switcher_kg1);
+                                vs_kg2 = v.findViewById(R.id.switcher_kg2);
+                                vs_kg3 = v.findViewById(R.id.switcher_kg3);
+                                vs_kg4 = v.findViewById(R.id.switcher_kg4);
+                                vs_kg5 = v.findViewById(R.id.switcher_kg5);
+
                                 add = v.findViewById(R.id.add);
 
                                 set1_edit = v.findViewById(R.id.set_1_edit);
@@ -200,6 +255,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                                 set5_edit = v.findViewById(R.id.set_5_edit);
                                 rest_edit = v.findViewById(R.id.rest_edit);
 
+                                kg1_edit = v.findViewById(R.id.kg1_edit);
+                                kg2_edit = v.findViewById(R.id.kg2_edit);
+                                kg3_edit = v.findViewById(R.id.kg3_edit);
+                                kg4_edit = v.findViewById(R.id.kg4_edit);
+                                kg5_edit = v.findViewById(R.id.kg5_edit);
+
                                 vs_name.setDisplayedChild(0);
                                 vs1.setDisplayedChild(0);
                                 vs2.setDisplayedChild(0);
@@ -207,6 +268,13 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                                 vs4.setDisplayedChild(0);
                                 vs5.setDisplayedChild(0);
                                 vs_rest.setDisplayedChild(0);
+
+                                vs_kg1.setDisplayedChild(0);
+                                vs_kg2.setDisplayedChild(0);
+                                vs_kg3.setDisplayedChild(0);
+                                vs_kg4.setDisplayedChild(0);
+                                vs_kg5.setDisplayedChild(0);
+
                                 add.setVisibility(View.VISIBLE);
 
                                 add.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +291,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                                         int set5 = Integer.parseInt(set5_edit.getText().toString());
                                         int rest = Integer.parseInt(rest_edit.getText().toString());
 
+                                        int kg1 = Integer.parseInt(kg1_edit.getText().toString());
+                                        int kg2 = Integer.parseInt(kg2_edit.getText().toString());
+                                        int kg3 = Integer.parseInt(kg3_edit.getText().toString());
+                                        int kg4 = Integer.parseInt(kg4_edit.getText().toString());
+                                        int kg5 = Integer.parseInt(kg5_edit.getText().toString());
+
 //                                        String test = Integer.toString(set1)+", "+Integer.toString(set2)+", "+Integer.toString(set3);
 //                                        Toast.makeText(getContext(), test, Toast.LENGTH_SHORT).show();
 
@@ -233,6 +307,12 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                                         workoutExercises.get(position).setSet4(set4);
                                         workoutExercises.get(position).setSet5(set5);
                                         workoutExercises.get(position).setRest(rest);
+
+                                        workoutExercises.get(position).setKg1(kg1);
+                                        workoutExercises.get(position).setKg2(kg2);
+                                        workoutExercises.get(position).setKg3(kg3);
+                                        workoutExercises.get(position).setKg4(kg4);
+                                        workoutExercises.get(position).setKg5(kg5);
 
                                         // notify adapter
                                         notifyDataSetChanged();
