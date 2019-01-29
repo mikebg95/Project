@@ -47,7 +47,8 @@ public class WorkoutInfoActivity extends AppCompatActivity {
         date.setText(dateString);
 
         // link listview to workout exercises via adapter
-        WorkoutExerciseAdapter adapter = new WorkoutExerciseAdapter(this, R.layout.workout_exercise_row_editable, workoutExercises);
+        WorkoutExerciseAdapter adapter = new WorkoutExerciseAdapter(this,
+                                        R.layout.workout_exercise_row_editable, workoutExercises);
         exercises.setAdapter(adapter);
 
     }

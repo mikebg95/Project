@@ -24,8 +24,11 @@ public class EditWorkoutActivity extends AppCompatActivity {
     Button saveChanges;
     Button addExercise;
 
+    // variables for workout object and adapter
     Workout workout;
+    WorkoutExerciseAdapter adapter;
 
+    // variables related to onBackPressed()
     int pos;
     int backPress;
 
@@ -53,63 +56,56 @@ public class EditWorkoutActivity extends AppCompatActivity {
         changeComment.setText(workout.getComment());
 
         // set listview to list of exercises via adapter
-        final WorkoutExerciseAdapter adapter = new WorkoutExerciseAdapter(this, R.layout.workout_exercise_row_editable, workout.getWorkoutExercises());
+        adapter = new WorkoutExerciseAdapter(this, R.layout.workout_exercise_row_editable, workout.getWorkoutExercises());
         changeExercises.setAdapter(adapter);
 
         // when clicked on "add exercise"
-        addExercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // create new workout exercise object with default values
-                WorkoutExercise2 newEx = new WorkoutExercise2(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        addExercise.setOnClickListener(new AddExerciseClicked());
 
-                // add to arraylist of exercises for that workout and notify adapter
-                MyWorkoutsActivity.workouts.get(pos).getWorkoutExercises().add(newEx);
-//                MyWorkoutsActivity.workoutExercises.add(newEx);
-                adapter.notifyDataSetChanged();
+        // when clicked on "save changes"
+        saveChanges.setOnClickListener(new SaveChangesClicked());
+    }
 
-                // TODO: make added row in listview Editable
-                // returns (incorrect) position of added exercise -> TODO: get correct position!
-                int position = adapter.getPosition(newEx) - changeExercises.getFirstVisiblePosition();
-                Log.d("position", Integer.toString(position));
+    public class SaveChangesClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
 
-//                makeEditable(position);
+            // set edited muscle group
+            String muscle = changeMuscle.getText().toString();
+            MyWorkoutsActivity.workouts.get(pos).setMuscleGroups(muscle);
 
-            }
-        });
+            // set edited workout day
+            String day = changeDay.getText().toString();
+            MyWorkoutsActivity.workouts.get(pos).setWorkoutDay(day);
 
-        saveChanges.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // set edited muscle group
-                String muscle = changeMuscle.getText().toString();
-                MyWorkoutsActivity.workouts.get(pos).setMuscleGroups(muscle);
-
-                // set edited workout day
-                String day = changeDay.getText().toString();
-                MyWorkoutsActivity.workouts.get(pos).setWorkoutDay(day);
-
-                // set edited comment
-                String comment = changeComment.getText().toString();
-                MyWorkoutsActivity.workouts.get(pos).setComment(comment);
+            // set edited comment
+            String comment = changeComment.getText().toString();
+            MyWorkoutsActivity.workouts.get(pos).setComment(comment);
 
 
-                // get and set current date
-                String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                MyWorkoutsActivity.workouts.get(pos).setTimestamp(date);
+            // get and set current date
+            String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+            MyWorkoutsActivity.workouts.get(pos).setTimestamp(date);
 
-                // clear arraylist of workoutexercises
+            // clear arraylist of workoutexercises
 //                MyWorkoutsActivity.workoutExercises.clear();
 
-                Intent intent = new Intent(EditWorkoutActivity.this, WorkoutScheduleActivity.class);
-                intent.putExtra("pos", pos);
-                startActivity(intent);
+            Intent intent = new Intent(EditWorkoutActivity.this, WorkoutScheduleActivity.class);
+            intent.putExtra("pos", pos);
+            startActivity(intent);
+        }
+    }
 
+    public class AddExerciseClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            // create new workout exercise object with default values
+            WorkoutExercise2 newEx = new WorkoutExercise2(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-            }
-        });
-
-
+            // add to arraylist of exercises for that workout and notify adapter
+            MyWorkoutsActivity.workouts.get(pos).getWorkoutExercises().add(newEx);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     public void onBackPressed() {

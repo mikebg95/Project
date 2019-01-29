@@ -14,8 +14,7 @@ import java.util.ArrayList;
 
 public class SavedExercisesActivity extends AppCompatActivity {
 
-    // variables for listview and adapter
-    ListView savedExercises;
+    // static variable for adapter
     public static ExerciseAdapter adapter;
 
     @Override
@@ -24,26 +23,27 @@ public class SavedExercisesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_saved_exercises);
 
         // create variables linked to listview
-        savedExercises = findViewById(R.id.savedExercises);
+        ListView savedExercises = findViewById(R.id.savedExercises);
 
         // set listview to favorite exercises via adapter
         adapter = new ExerciseAdapter(this, R.layout.exercise_row, HomeActivity.favoriteExercises);
         savedExercises.setAdapter(adapter);
 
         // when clicked on exercise in listview
-        savedExercises.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        savedExercises.setOnItemClickListener(new OnSavedExerciseClicked());
+    }
 
-                // get clicked exercise object
-                Exercise currentExercise = (Exercise) parent.getItemAtPosition(position);
+    public class OnSavedExerciseClicked implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // get clicked exercise object
+            Exercise currentExercise = (Exercise) parent.getItemAtPosition(position);
 
-                // add exercise to and start intent for pop-up screen
-                Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
-                intent.putExtra("exercise", currentExercise);
-                intent.putExtra("isFavorite", true);
-                startActivity(intent);
-            }
-        });
+            // add exercise to and start intent for pop-up screen
+            Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
+            intent.putExtra("exercise", currentExercise);
+            intent.putExtra("isFavorite", true);
+            startActivity(intent);
+        }
     }
 }

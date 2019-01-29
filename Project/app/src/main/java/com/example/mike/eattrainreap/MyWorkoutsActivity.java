@@ -14,10 +14,6 @@ public class MyWorkoutsActivity extends AppCompatActivity {
     public static ArrayList<WorkoutExercise2> workoutExercises = new ArrayList<>();
     public static ArrayList<Workout> workouts = new ArrayList<>();
 
-    // variables for buttons
-    Button workoutSchedule;
-    Button newWorkout;
-
     // variable for intent
     Intent intent;
 
@@ -27,27 +23,33 @@ public class MyWorkoutsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_workouts);
 
         // link variables to correct buttons
-        newWorkout = findViewById(R.id.new_workout);
-        workoutSchedule = findViewById(R.id.schedule);
+        Button newWorkout = findViewById(R.id.new_workout);
+        Button workoutSchedule = findViewById(R.id.schedule);
 
         // when clicked on button, go to corresponding activity via intent
-        newWorkout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(MyWorkoutsActivity.this, NewWorkoutActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        workoutSchedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(MyWorkoutsActivity.this, WorkoutScheduleActivity.class);
-                startActivity(intent);
-            }
-        });
+        newWorkout.setOnClickListener(new OnNewWorkoutClicked());
+        workoutSchedule.setOnClickListener(new OnWorkoutScheduleClicked());
     }
 
+    // onclicklistener for newWorkout
+    public class OnNewWorkoutClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            intent = new Intent(MyWorkoutsActivity.this, NewWorkoutActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    // onclicklistener for workoutSchedule
+    public class OnWorkoutScheduleClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            intent = new Intent(MyWorkoutsActivity.this, WorkoutScheduleActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    // when user presses 'back' button
     public void onBackPressed() {
         Intent intent = new Intent(MyWorkoutsActivity.this, HomeActivity.class);
         startActivity(intent);

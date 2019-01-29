@@ -27,20 +27,23 @@ public class HomeActivity extends AppCompatActivity {
         Button exercises = findViewById(R.id.exercises_info);
 
         // when clicked on button, go to corresponding activity (via intent)
-        myWorkouts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(HomeActivity.this, MyWorkoutsActivity.class);
-                startActivity(intent);
-            }
-        });
+        myWorkouts.setOnClickListener(new OnMyWorkoutsClicked());
+        exercises.setOnClickListener(new OnExercisesClicked());
+    }
 
-        exercises.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(HomeActivity.this, ExercisesActivity.class);
-                startActivity(intent);
-            }
-        });
+    class OnMyWorkoutsClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            intent = new Intent(HomeActivity.this, MyWorkoutsActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    class OnExercisesClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            intent = new Intent(HomeActivity.this, ExercisesActivity.class);
+            startActivity(intent);
+        }
     }
 }

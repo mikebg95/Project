@@ -70,8 +70,6 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
 //                                intent.putExtra("workoutClicked", currentWorkout);
                                 intent.putExtra("position", position);
                                 v.getContext().startActivity(intent);
-
-                                Toast.makeText(getContext(), "'edit' clicked", Toast.LENGTH_SHORT).show();
                                 break;
                             case 1:
 

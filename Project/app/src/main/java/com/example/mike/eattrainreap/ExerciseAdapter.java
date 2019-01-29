@@ -33,6 +33,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterabl
         this.exercises = exercises;
     }
 
+    // set custom filter
     @Override
     public Filter getFilter() {
         if (eFilter == null) {
@@ -42,8 +43,31 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterabl
         return eFilter;
     }
 
-    private class ExercisesFilter extends Filter {
+    // link exercise information to row in list view
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_row, parent, false);
+        }
 
+        // get exercise for that position in lsitview
+        Exercise current = exercises.get(position);
+
+        // link variables to views
+        name = convertView.findViewById(R.id.name);
+        muscle = convertView.findViewById(R.id.workout_day);
+        equipment = convertView.findViewById(R.id.equipment);
+
+        // set textviews to relevant info
+        name.setText(current.getName());
+        muscle.setText(current.getMuscles());
+        equipment.setText(current.getEquipment());
+
+        return convertView;
+    }
+
+    private class ExercisesFilter extends Filter {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
 
@@ -78,29 +102,5 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> implements Filterabl
             Log.d("size", Integer.toString(exercises.size()));
             notifyDataSetChanged();
         }
-    }
-
-    // link exercise information to row in list view
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_row, parent, false);
-        }
-
-        // get exercise for that position in lsitview
-        Exercise current = exercises.get(position);
-
-        // link variables to views
-        name = convertView.findViewById(R.id.name);
-        muscle = convertView.findViewById(R.id.workout_day);
-        equipment = convertView.findViewById(R.id.equipment);
-
-        // set textviews to relevant info
-        name.setText(current.getName());
-        muscle.setText(current.getMuscles());
-        equipment.setText(current.getEquipment());
-
-        return convertView;
     }
 }

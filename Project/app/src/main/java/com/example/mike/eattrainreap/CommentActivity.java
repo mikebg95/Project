@@ -12,7 +12,13 @@ import android.widget.Toast;
 
 public class CommentActivity extends AppCompatActivity {
 
-    String commentString;
+    private String commentString;
+
+    private EditText comment;
+
+    private Workout newWorkout;
+
+    Intent intent;
 
 
     @Override
@@ -30,30 +36,31 @@ public class CommentActivity extends AppCompatActivity {
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
 
         // variables linked to edittext and "add" button
-        final EditText comment = findViewById(R.id.comment_info);
+        comment = findViewById(R.id.comment_info);
         Button addComment = findViewById(R.id.add_button);
 
         // get new workout via intent
-        Intent intent = getIntent();
-        final Workout newWorkout = (Workout) intent.getSerializableExtra("newWorkout");
+        intent = getIntent();
+        newWorkout = (Workout) intent.getSerializableExtra("newWorkout");
 
         // when clicked on "add"
-        addComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addComment.setOnClickListener(new AddCommentClicked());
+    }
 
-                // only set comment if user typed something
-                commentString = comment.getText().toString();
-                if (!commentString.equals("")) {
-                    newWorkout.setComment(commentString);
-                }
-
-                MyWorkoutsActivity.workouts.add(newWorkout);
-
-                // go to workout schedule
-                Intent intent2 = new Intent(CommentActivity.this, WorkoutScheduleActivity.class);
-                startActivity(intent2);
+    public class AddCommentClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            // only set comment if user typed something
+            commentString = comment.getText().toString();
+            if (!commentString.equals("")) {
+                newWorkout.setComment(commentString);
             }
-        });
+
+            MyWorkoutsActivity.workouts.add(newWorkout);
+
+            // go to workout schedule
+            Intent intent2 = new Intent(CommentActivity.this, WorkoutScheduleActivity.class);
+            startActivity(intent2);
+        }
     }
 }

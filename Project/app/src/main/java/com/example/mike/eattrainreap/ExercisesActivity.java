@@ -8,10 +8,7 @@ import android.widget.Button;
 
 public class ExercisesActivity extends AppCompatActivity {
 
-    // variables for buttons and intent
-    Button findExercise;
-    Button savedExercises;
-    Button previousExercises;
+    // variable for intent
     Intent intent;
 
     @Override
@@ -20,24 +17,27 @@ public class ExercisesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exercises);
 
         // link variables to buttons
-        findExercise = findViewById(R.id.findExercise);
-        savedExercises = findViewById(R.id.savedExercises);
+        Button findExercise = findViewById(R.id.findExercise);
+        Button savedExercises = findViewById(R.id.savedExercises);
 
         // when clicked on certain button, go to corresponding activity
-        findExercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(ExercisesActivity.this, FindExerciseActivity.class);
-                startActivity(intent);
-            }
-        });
+        findExercise.setOnClickListener(new OnFindClicked());
+        savedExercises.setOnClickListener(new OnSavedClicked());
+    }
 
-        savedExercises.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(ExercisesActivity.this, SavedExercisesActivity.class);
-                startActivity(intent);
-            }
-        });
+    public class OnFindClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            intent = new Intent(ExercisesActivity.this, FindExerciseActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public class OnSavedClicked implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            intent = new Intent(ExercisesActivity.this, SavedExercisesActivity.class);
+            startActivity(intent);
+        }
     }
 }

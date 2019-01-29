@@ -105,6 +105,7 @@ public class ExercisesRequest {
                 }
             }
         },
+
         // when api request failed
         new Response.ErrorListener() {
             @Override

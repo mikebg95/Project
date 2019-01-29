@@ -190,30 +190,6 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
             }
         });
 
-        // when clicked on "add"
-//        add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Toast.makeText(getContext(), "add button clicked", Toast.LENGTH_SHORT).show();
-//
-//                // get info typed in by user
-//                int set1 = Integer.parseInt(set1_edit.getText().toString());
-//                int set2 = Integer.parseInt(set2_edit.getText().toString());
-//                int set3 = Integer.parseInt(set3_edit.getText().toString());
-//                int rest = Integer.parseInt(rest_edit.getText().toString());
-//
-//                // set workout exercise info and notify adapter
-//                current.setSet1(set1);
-//                current.setSet2(set2);
-//                current.setSet3(set3);
-//                current.setRest(rest);
-//
-//                notifyDataSetChanged();
-//            }
-//        });
-
-
         // when long-clicked on a row
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -296,9 +272,6 @@ public class WorkoutExerciseAdapter extends ArrayAdapter<WorkoutExercise2> {
                                         int kg3 = Integer.parseInt(kg3_edit.getText().toString());
                                         int kg4 = Integer.parseInt(kg4_edit.getText().toString());
                                         int kg5 = Integer.parseInt(kg5_edit.getText().toString());
-
-//                                        String test = Integer.toString(set1)+", "+Integer.toString(set2)+", "+Integer.toString(set3);
-//                                        Toast.makeText(getContext(), test, Toast.LENGTH_SHORT).show();
 
                                         // set workout exercise info
                                         workoutExercises.get(position).setSet1(set1);
