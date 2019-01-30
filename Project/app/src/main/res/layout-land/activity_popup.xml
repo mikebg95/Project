@@ -88,7 +88,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:layout_toEndOf="@+id/textView28"
-        android:text="Add to favorites" />
+        android:fontFamily="casual"
+        android:text="Add to favorites"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView27"

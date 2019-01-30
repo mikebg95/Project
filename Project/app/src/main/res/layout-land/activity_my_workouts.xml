@@ -13,7 +13,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
+        android:fontFamily="casual"
         android:text="Workout Schedule"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -25,7 +28,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
+        android:fontFamily="casual"
         android:text="new workout"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/schedule"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -39,7 +45,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="casual"
         android:text="My Workouts"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -48,7 +54,7 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="244dp"
+        android:layout_width="315dp"
         android:layout_height="59dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -57,6 +63,7 @@
         android:fontFamily="casual"
         android:gravity="center"
         android:text="View your already created workouts, or simply create a new one!"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/new_workout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"

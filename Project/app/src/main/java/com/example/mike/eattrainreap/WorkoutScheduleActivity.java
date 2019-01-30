@@ -23,9 +23,6 @@ public class WorkoutScheduleActivity extends AppCompatActivity {
         // link variable to listview
         ListView schedule = findViewById(R.id.schedule);
 
-        TextView tv = findViewById(R.id.tv);
-        tv.setPaintFlags(tv.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
         // link listview to workouts via adapter
         WorkoutAdapter wAdapter = new WorkoutAdapter(this, R.layout.workout_row,
                                                         MyWorkoutsActivity.workouts);

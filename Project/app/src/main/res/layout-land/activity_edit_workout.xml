@@ -8,7 +8,7 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="290dp"
+        android:layout_width="407dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -23,7 +23,7 @@
 
             <ListView
                 android:id="@+id/change_exercises"
-                android:layout_width="285dp"
+                android:layout_width="392dp"
                 android:layout_height="156dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -31,9 +31,10 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.398"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
@@ -64,22 +65,26 @@
 
     <EditText
         android:id="@+id/change_comment"
-        android:layout_width="276dp"
+        android:layout_width="152dp"
         android:layout_height="122dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:fontFamily="casual"
         android:gravity="center"
         android:inputType="textMultiLine"
         android:textAlignment="center"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/save_changes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scrollView2"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <EditText
         android:id="@+id/change_day"
-        android:layout_width="wrap_content"
+        android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -130,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="64dp"
         android:fontFamily="casual"
         android:text="Workout day"
         app:layout_constraintEnd_toEndOf="parent"
