@@ -3,12 +3,12 @@ Description
 The app allows the user to find exercises (through an online api source), and add these exercises to the list of favorite exercises, which can then be viewed.
 It is also possible for the user to create a new workout, and insert the exercise, the amounts of sets, reps and kg's. These workouts can be viewed, edited and deleted.
 
-[SCREENSHOT OF THE APP]
+![Screenshot](https://github.com/mikebg95/Project/blob/master/doc/screenshot.jpg)
 
 
 Technical Design
 
-[PHOTO]
+![Technical Design](https://github.com/mikebg95/Project/blob/master/doc/REPORT.png)
 
 Custom classes used:
 
