@@ -1,3 +1,7 @@
+*************************************************
+VIDEO DEMONSTRATION: https://youtu.be/5rMDeys4kk4
+*************************************************
+
 Description
 
 The app allows the user to find exercises (through an online api source), and add these exercises to the list of favorite exercises, which can then be viewed.
