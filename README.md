@@ -1,3 +1,6 @@
+This is the final project for the Android Development Track, from the Minor Programming at the University of Amsterdam.
+
+
 Problem statement
 
 The problem is a lack of a single simple, user-friendly workout app that lets the user set their own goals, design their own workout routine and set a personal diet based on the user's physical characteristics and goals. 
